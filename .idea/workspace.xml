@@ -1,32 +1,294 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="3439d61f-49a7-4a85-ab12-d91adebfbadd" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/CRETE_VALLEY_T.4.3.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Biomass_Boiler_resource.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CHP_resource.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Electrolyzer_P2G_resource.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Eletric_Vehicles_resource.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Fuel_cell_resource.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/HP_resource.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Hydrogen_Storage_resource.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Input Data - Other.xlsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Input Data - Resources 1.xlsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PV_resource.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Storage_resource.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Wind_Turbine_resource.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/create_model.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/create_variables.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data_loader.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/output_model.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/run_optimization_model.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/CHP_19_CHPE_reserves.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/CHP_19_CHPG_reserves.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/EV_13_Reserve.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/EV_22_Reserve.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/EV_29_Reserve.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/EV_8_Reserve.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/FC_20_reserves.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/FC_24_reserves.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/HP_10_reserves.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/HP_12_reserves.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/HP_14_reserves.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/HP_16_reserves.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/HP_17_reserves.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/HP_18_reserves.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/HP_19_reserves.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/HP_1_reserves.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/HP_20_reserves.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/HP_21_reserves.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/HP_23_reserves.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/HP_24_reserves.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/HP_26_reserves.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/HP_27_reserves.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/HP_28_reserves.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/HP_29_reserves.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/HP_30_reserves.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/HP_31_reserves.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/HP_33_reserves.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/HP_35_reserves.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/HP_36_reserves.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/HP_37_reserves.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/HP_38_reserves.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/HP_3_reserves.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/HP_4_reserves.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/HP_5_reserves.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/HP_6_reserves.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/HP_7_reserves.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/HP_9_reserves.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/PV_11_reserves.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/PV_12_reserves.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/PV_14_reserves.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/PV_16_reserves.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/PV_19_reserves.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/PV_1_reserves.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/PV_21_reserves.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/PV_24_reserves.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/PV_2_reserves.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/PV_31_reserves.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/PV_33_reserves.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/PV_34_reserves.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/PV_38_reserves.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/PV_4_reserves.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/PV_8_reserves.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Biomass_Boiler_resource.py" beforeDir="false" afterPath="$PROJECT_DIR$/Biomass_Boiler_resource.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CHP_resource.py" beforeDir="false" afterPath="$PROJECT_DIR$/CHP_resource.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Eletric_Vehicles_resource.py" beforeDir="false" afterPath="$PROJECT_DIR$/Eletric_Vehicles_resource.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HP_resource.py" beforeDir="false" afterPath="$PROJECT_DIR$/HP_resource.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Input Data - Other.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/Input Data - Other.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Input Data - Resources 1.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/Input Data - Resources 1.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Wind_Turbine_resource.py" beforeDir="false" afterPath="$PROJECT_DIR$/Wind_Turbine_resource.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/create_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/create_model.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/create_variables.py" beforeDir="false" afterPath="$PROJECT_DIR$/create_variables.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_loader.py" beforeDir="false" afterPath="$PROJECT_DIR$/data_loader.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/final_results_crete_valley.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/final_results_crete_valley.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/output_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/output_model.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/EV_15_power.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/EV_1_power.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/EV_20_power.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/EV_25_power.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/EV_2_power.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/EV_31_power.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/EV_34_power.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/EV_39_power.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/EV_3_power.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/EV_4_power.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/EV_9_power.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/P2G_E_building_1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/P2G_E_building_6.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/P_CHPE_1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/P_CHPE_11.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/P_CHPE_2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/P_CHPE_20.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/P_CHPE_24.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/P_CHPE_26.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/P_CHPE_29.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/P_CHPE_3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/P_CHPE_31.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/P_CHPE_33.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/P_CHPE_36.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/P_CHPG_1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/P_CHPG_11.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/P_CHPG_2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/P_CHPG_20.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/P_CHPG_24.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/P_CHPG_26.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/P_CHPG_29.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/P_CHPG_3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/P_CHPG_31.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/P_CHPG_33.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/P_CHPG_36.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/P_FC_E_1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/P_HP_11.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/P_HP_13.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/P_HP_15.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/P_HP_2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/P_HP_22.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/P_HP_25.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/P_HP_32.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/P_HP_34.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/P_HP_39.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/P_HP_8.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/P_PV_11.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/P_PV_12.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/P_PV_14.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/P_PV_19.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/P_PV_24.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/P_PV_31.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/P_PV_33.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/P_PV_34.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/P_PV_4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/P_PV_8.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/battery_10_charge_discharge.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/battery_15_charge_discharge.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/battery_19_charge_discharge.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/battery_1_charge_discharge.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/battery_25_charge_discharge.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/battery_30_charge_discharge.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/battery_35_charge_discharge.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/battery_37_charge_discharge.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/battery_39_charge_discharge.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/boiler_15_electricity_consumption.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/boiler_15_thermal_power.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/boiler_1_electricity_consumption.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/boiler_1_thermal_power.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/boiler_21_electricity_consumption.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/boiler_21_thermal_power.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/boiler_27_electricity_consumption.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/boiler_27_thermal_power.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/boiler_30_electricity_consumption.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/boiler_30_thermal_power.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/boiler_38_electricity_consumption.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/boiler_38_thermal_power.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/boiler_3_electricity_consumption.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/boiler_3_thermal_power.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/boiler_9_electricity_consumption.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/boiler_9_thermal_power.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/building_11_temperatures.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/building_13_temperatures.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/building_15_temperatures.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/building_22_temperatures.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/building_25_temperatures.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/building_2_temperatures.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/building_32_temperatures.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/building_34_temperatures.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/building_39_temperatures.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/building_8_temperatures.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/electric_energy_balance.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/electric_energy_balance.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/initial_loads/load_building_1.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/initial_loads/load_building_1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/initial_loads/load_building_10.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/initial_loads/load_building_12.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/initial_loads/load_building_12.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/initial_loads/load_building_13.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/initial_loads/load_building_13.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/initial_loads/load_building_14.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/initial_loads/load_building_14.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/initial_loads/load_building_16.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/initial_loads/load_building_16.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/initial_loads/load_building_17.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/initial_loads/load_building_18.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/initial_loads/load_building_18.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/initial_loads/load_building_19.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/initial_loads/load_building_19.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/initial_loads/load_building_20.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/initial_loads/load_building_20.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/initial_loads/load_building_21.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/initial_loads/load_building_23.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/initial_loads/load_building_23.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/initial_loads/load_building_24.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/initial_loads/load_building_24.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/initial_loads/load_building_26.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/initial_loads/load_building_26.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/initial_loads/load_building_27.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/initial_loads/load_building_27.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/initial_loads/load_building_28.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/initial_loads/load_building_29.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/initial_loads/load_building_29.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/initial_loads/load_building_3.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/initial_loads/load_building_3.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/initial_loads/load_building_30.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/initial_loads/load_building_31.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/initial_loads/load_building_31.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/initial_loads/load_building_33.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/initial_loads/load_building_33.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/initial_loads/load_building_35.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/initial_loads/load_building_36.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/initial_loads/load_building_36.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/initial_loads/load_building_37.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/initial_loads/load_building_37.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/initial_loads/load_building_38.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/initial_loads/load_building_4.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/initial_loads/load_building_4.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/initial_loads/load_building_5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/initial_loads/load_building_6.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/initial_loads/load_building_6.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/initial_loads/load_building_7.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/initial_loads/load_building_7.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/initial_loads/load_building_9.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/natural_gas_consumption.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/natural_gas_consumption.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/p2g_1_plot.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/p2g_6_plot.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/secondary_reserves/CHP_11_CHPE_reserves.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/secondary_reserves/CHP_11_CHPG_reserves.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/secondary_reserves/CHP_1_CHPE_reserves.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/CHP_1_CHPE_reserves.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/secondary_reserves/CHP_1_CHPG_reserves.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/CHP_1_CHPG_reserves.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/secondary_reserves/CHP_20_CHPE_reserves.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/secondary_reserves/CHP_20_CHPG_reserves.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/secondary_reserves/CHP_24_CHPE_reserves.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/secondary_reserves/CHP_24_CHPG_reserves.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/secondary_reserves/CHP_26_CHPE_reserves.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/secondary_reserves/CHP_26_CHPG_reserves.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/secondary_reserves/CHP_29_CHPE_reserves.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/secondary_reserves/CHP_29_CHPG_reserves.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/secondary_reserves/CHP_2_CHPE_reserves.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/secondary_reserves/CHP_2_CHPG_reserves.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/secondary_reserves/CHP_31_CHPE_reserves.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/secondary_reserves/CHP_31_CHPG_reserves.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/secondary_reserves/CHP_33_CHPE_reserves.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/secondary_reserves/CHP_33_CHPG_reserves.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/secondary_reserves/CHP_36_CHPE_reserves.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/secondary_reserves/CHP_36_CHPG_reserves.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/secondary_reserves/CHP_3_CHPE_reserves.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/secondary_reserves/CHP_3_CHPG_reserves.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/secondary_reserves/EV_15_Reserve.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/secondary_reserves/EV_1_Reserve.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/EV_1_Reserve.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/secondary_reserves/EV_20_Reserve.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/secondary_reserves/EV_25_Reserve.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/EV_25_Reserve.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/secondary_reserves/EV_2_Reserve.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/secondary_reserves/EV_31_Reserve.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/EV_31_Reserve.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/secondary_reserves/EV_34_Reserve.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/EV_34_Reserve.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/secondary_reserves/EV_39_Reserve.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/EV_39_Reserve.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/secondary_reserves/EV_3_Reserve.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/secondary_reserves/EV_4_Reserve.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/secondary_reserves/EV_9_Reserve.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/secondary_reserves/FC_1_reserves.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/FC_1_reserves.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/secondary_reserves/HP_11_reserves.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/HP_11_reserves.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/secondary_reserves/HP_13_reserves.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/HP_13_reserves.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/secondary_reserves/HP_15_reserves.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/HP_15_reserves.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/secondary_reserves/HP_22_reserves.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/HP_22_reserves.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/secondary_reserves/HP_25_reserves.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/HP_25_reserves.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/secondary_reserves/HP_2_reserves.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/HP_2_reserves.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/secondary_reserves/HP_32_reserves.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/HP_32_reserves.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/secondary_reserves/HP_34_reserves.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/HP_34_reserves.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/secondary_reserves/HP_39_reserves.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/HP_39_reserves.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/secondary_reserves/HP_8_reserves.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/HP_8_reserves.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/secondary_reserves/P2G_1_reserves.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/P2G_1_reserves.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/secondary_reserves/P2G_6_reserves.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/P2G_6_reserves.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/secondary_reserves/PV_Reserves.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/secondary_reserves/battery_10_charge_reserve.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/battery_10_charge_reserve.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/secondary_reserves/battery_10_discharge_reserve.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/battery_10_discharge_reserve.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/secondary_reserves/battery_15_charge_reserve.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/battery_15_charge_reserve.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/secondary_reserves/battery_15_discharge_reserve.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/battery_15_discharge_reserve.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/secondary_reserves/battery_19_charge_reserve.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/battery_19_charge_reserve.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/secondary_reserves/battery_19_discharge_reserve.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/battery_19_discharge_reserve.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/secondary_reserves/battery_1_charge_reserve.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/battery_1_charge_reserve.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/secondary_reserves/battery_1_discharge_reserve.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/battery_1_discharge_reserve.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/secondary_reserves/battery_25_charge_reserve.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/battery_25_charge_reserve.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/secondary_reserves/battery_25_discharge_reserve.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/battery_25_discharge_reserve.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/secondary_reserves/battery_30_charge_reserve.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/battery_30_charge_reserve.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/secondary_reserves/battery_30_discharge_reserve.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/battery_30_discharge_reserve.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/secondary_reserves/battery_35_charge_reserve.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/battery_35_charge_reserve.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/secondary_reserves/battery_35_discharge_reserve.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/battery_35_discharge_reserve.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/secondary_reserves/battery_37_charge_reserve.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/battery_37_charge_reserve.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/secondary_reserves/battery_37_discharge_reserve.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/battery_37_discharge_reserve.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/secondary_reserves/battery_39_charge_reserve.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/battery_39_charge_reserve.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/secondary_reserves/battery_39_discharge_reserve.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/battery_39_discharge_reserve.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/secondary_reserves/boiler_15_reserves_E.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/boiler_15_reserves_E.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/secondary_reserves/boiler_15_reserves_F.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/boiler_15_reserves_F.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/secondary_reserves/boiler_1_reserves_E.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/boiler_1_reserves_E.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/secondary_reserves/boiler_1_reserves_F.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/boiler_1_reserves_F.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/secondary_reserves/boiler_21_reserves_E.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/boiler_21_reserves_E.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/secondary_reserves/boiler_21_reserves_F.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/boiler_21_reserves_F.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/secondary_reserves/boiler_27_reserves_E.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/boiler_27_reserves_E.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/secondary_reserves/boiler_27_reserves_F.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/boiler_27_reserves_F.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/secondary_reserves/boiler_30_reserves_E.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/boiler_30_reserves_E.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/secondary_reserves/boiler_30_reserves_F.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/boiler_30_reserves_F.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/secondary_reserves/boiler_38_reserves_E.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/boiler_38_reserves_E.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/secondary_reserves/boiler_38_reserves_F.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/boiler_38_reserves_F.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/secondary_reserves/boiler_3_reserves_E.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/boiler_3_reserves_E.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/secondary_reserves/boiler_3_reserves_F.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/boiler_3_reserves_F.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/secondary_reserves/boiler_9_reserves_E.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/boiler_9_reserves_E.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/secondary_reserves/boiler_9_reserves_F.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/boiler_9_reserves_F.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/secondary_reserves/wind_turbine_18_reserves.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/wind_turbine_18_reserves.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/secondary_reserves/wind_turbine_1_reserves.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/secondary_reserves/wind_turbine_31_reserves.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/secondary_reserves/wind_turbine_39_reserves.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/wind_turbine_39_reserves.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/secondary_reserves/wind_turbine_4_reserves.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/wind_turbine_4_reserves.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/wind_turbine_18_power.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/wind_turbine_1_power.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/wind_turbine_31_power.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/wind_turbine_39_power.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/wind_turbine_4_power.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run_optimization_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/run_optimization_model.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,9 +298,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 7
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 7
+}</component>
   <component name="ProjectId" id="2vAq8SnxpVvUvrWm2MaJ4w4AbP8" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -50,8 +312,10 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "ASKED_ADD_EXTERNAL_FILES": "true",
+    "Python.main.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master"
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "C:/Users/hugo.serrano/PycharmProjects1/PROJETO CRETE VALLEY"
   }
 }]]></component>
   <component name="SharedIndexes">

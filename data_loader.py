@@ -1,105 +1,80 @@
 from pathlib import Path
 import pandas as pd
 import numpy as np
-pd.set_option('display.max_columns', None)  # Exibir todas as colunas
-pd.set_option('display.max_rows', None)     # Exibir todas as linhas
+pd.set_option('display.max_columns', None)  # Display all columns
+pd.set_option('display.max_rows', None)     # Display all rows
 pd.set_option('display.width', None)
 
 def get_resources(file_path="Input Data - Resources 1.xlsx"):
 
     data = pd.read_excel(file_path, sheet_name=None)
     resources = {}
-    # Definir quais abas têm o mesmo formato
+    # Define which sheets have the same format
     similar_sheets = ["Electrical load", "Gas load", "Heat load"]
-    # Processar as abas que têm a mesma estrutura
+    # Process the sheets with the same structure
     for sheet_name in similar_sheets:
         if sheet_name in data:
             df = data[sheet_name]
 
-            # Remover a primeira coluna vazia (se existir)
+            # Remove the first empty column (if it exists)
             if df.iloc[:, 0].isna().all():
                 df = df.iloc[:, 1:]
 
-            # Definir os nomes das colunas
+            # Define the column names
             df.columns = ["Load/Building/Resource"] + list(range(1, 25))
 
-            # Remover a primeira linha se estiver repetindo os cabeçalhos
+            # Remove the first row if it is repeating the headers
             if df.iloc[0, 0] == "Load/Building/Resource":
                 df = df.iloc[1:]
 
-            # Definir o índice corretamente
+            # Set the index correctly
             df = df.set_index("Load/Building/Resource")
 
-            # Converter os valores para float
+            # Convert the values to float
             df = df.apply(pd.to_numeric, errors='coerce')
 
-            # Salvar no dicionário
+            # Save in the dictionary
             resources[sheet_name] = df.to_dict(orient="index")
 
-    # if "Thermal Resources Params" in data:
-    #     df = data["Thermal Resources Params"].dropna(how="all")  # Remove linhas vazias
-    #
-    #     # Preencher os valores NaN na coluna "Resources" com o último valor válido (tratar células mescladas)
-    #     df.iloc[:, 0] = df.iloc[:, 0].ffill()
-    #     thermal_resources = {}
-    #
-    #     for _, row in df.iterrows():
-    #         resource = row.iloc[0]  # Primeira coluna (Resource) -> Categoria principal (HP, CHP, etc.)
-    #         parameter = row.iloc[1]  # Segunda coluna (Parameter) -> Nome do parâmetro
-    #         value = row.iloc[2]  # Terceira coluna (Value) -> Valor numérico
-    #
-    #         # Adiciona ao dicionário estruturado
-    #         if resource not in thermal_resources:
-    #             thermal_resources[resource] = {}
-    #
-    #         thermal_resources[resource][parameter] = value
-    #
-    #     resources["Thermal Resources Params"] = thermal_resources
-    #
-    #
-        # Processar as outras abas individualmente
+    # Process the other sheets individually
     for sheet_name in data.keys():
         if sheet_name not in similar_sheets and sheet_name != "Thermal Resources Params":
             resources[sheet_name] = data[sheet_name]
 
-
-
-
-
     return resources
 
 def load_resources_params(m, data):
-    # Verificar se a aba "buildings, resources" existe nos dados
-    if "buildings, resources" in data:  # Nome da aba em minúsculas
-        df = data["buildings, resources"].dropna(how="all")  # Remove linhas vazias
+    # Check if the "buildings, resources" sheet exists in the data
+    if "buildings, resources" in data:  # Sheet name in lowercase
+        df = data["buildings, resources"].dropna(how="all")  # Remove empty rows
 
-        # Verificar se a primeira linha contém os cabeçalhos corretos
+        # Check if the first row contains the correct headers
         if df.iloc[0, 0] == "Load/Building/Resource":
-            df.columns = df.iloc[0]  # Definir a primeira linha como cabeçalho
-            df = df.iloc[1:]  # Remover a primeira linha agora que é cabeçalho
+            df.columns = df.iloc[0]  # Set the first row as header
+            df = df.iloc[1:]  # Remove the first row now that it is the header
 
-        # Preencher células mescladas na primeira coluna
+        # Fill merged cells in the first column
         df.iloc[:, 0] = df.iloc[:, 0].ffill()
 
-        # Renomear colunas
+        # Rename columns
         df.columns = ["Resource", "Parameter"] + list(df.columns[2:])
 
-        # Verificar se as colunas dos edifícios são numéricas
-        building_columns = df.columns[2:]  # Colunas dos edifícios
+        # Check if the building columns are numeric
+        building_columns = df.columns[2:]  # Building columns
         try:
-            building_columns = [int(col) for col in building_columns]  # Converter para inteiros
+            building_columns = [int(col) for col in building_columns]  # Convert to integers
         except ValueError as e:
             print(f"Erro ao converter colunas para inteiros: {e}")
             print("Colunas dos edifícios:", df.columns[2:])
             return data
 
-        # Criar um dicionário estruturado para os dados de todos os recursos
+        # Create a structured dictionary for all resources data
         all_resources_data = {}
 
-        # Lista dos recursos a serem processados (nomes exatos)
+        # List of resources to be processed (exact names)
         resources = [
-            "Electric vehicle",  # Nome exato
-            "Hydrogen Storage",  # Nome exato
+            "Electric vehicle",   # Exact name
+            "Hydrogen Storage",
             "PV",
             "Storage",
             "Electrolyzer P2G",
@@ -111,44 +86,44 @@ def load_resources_params(m, data):
             "District Heating",
         ]
 
-        # Processar as linhas da planilha para organizar os dados dos recursos
+        # Process the rows of the spreadsheet to organize the resource data
         for _, row in df.iterrows():
-            resource = row["Resource"]  # Nome do recurso
-            if pd.isna(resource):  # Se for nan, ignorar esta linha
+            resource = row["Resource"]  # Resource name
+            if pd.isna(resource):  # If it is NaN, skip this row
                 continue
-            parameter = row["Parameter"]  # Nome do parâmetro
-            values = row.iloc[2:].to_dict()  # Dicionário {building: value}
+            parameter = row["Parameter"]  # Parameter name
+            values = row.iloc[2:].to_dict()  # Dictionary {building: value}
 
-            # Verificar se o recurso está na lista de recursos e adicionar ao dicionário
+            # Check if the resource is in the list of resources and add to the dictionary
             if resource in resources:
                 if resource not in all_resources_data:
                     all_resources_data[resource] = {}
 
                 all_resources_data[resource][parameter] = values
 
-        # Adicionar os dados de todos os recursos ao dicionário principal
+        # Add all resource data to the main dictionary
         for resource, data_dict in all_resources_data.items():
             data[resource] = data_dict
 
-        for resource in resources:
-            if resource in data:
-                print(f"\nDados do recurso: {resource}")
-                resource_data = data[resource]
-
-                # Criar um DataFrame para o recurso atual
-                df = pd.DataFrame(resource_data)
-
-                # Transpor o DataFrame para que os edifícios sejam colunas
-                df = df.transpose()
-
-                # Renomear as colunas para "Parâmetro" e os edifícios
-                df.index.name = "Parâmetro"
-                df.columns.name = "Edifício"
-
-                # Imprimir o DataFrame formatado
-                print(df)
-            else:
-                print(f"\nRecurso '{resource}' não encontrado nos dados.")
+        # for resource in resources:
+        #     if resource in data:
+        #         print(f"\nData for resource: {resource}")
+        #         resource_data = data[resource]
+        #
+        #         # Create a DataFrame for the current resource
+        #         df = pd.DataFrame(resource_data)
+        #
+        #         # Transpose the DataFrame so that buildings are columns
+        #         df = df.transpose()
+        #
+        #         # Rename columns to "Parameter" and the buildings
+        #         df.index.name = "Parameter"
+        #         df.columns.name = "Building"
+        #
+        #         # Print the formatted DataFrame
+        #         print(df)
+        #     else:
+        #         print(f"\nResource '{resource}' not found in the data.")
 
     return data
 
@@ -156,345 +131,294 @@ def load_resources_params(m, data):
 def Buildings_max_temp(m, data):
     sheet_name = "Buildings - Max temperature"
 
-    # Verificar se a aba existe no dicionário
+    # Check if the sheet exists in the data dictionary
     if sheet_name not in data:
-        print(f"Aba '{sheet_name}' não encontrada no dicionário de dados.")
+        print(f"Sheet '{sheet_name}' not found in the data dictionary.")
         return data
 
-    # Carregar o DataFrame e remover linhas totalmente vazias
+    # Load the DataFrame and remove completely empty rows
     df = data[sheet_name].dropna(how="all")
 
-    # ───────────── Ajustes de cabeçalho ─────────────
-    # 1) Vamos assumir que a primeira linha útil do DataFrame (df.iloc[0]) contém
-    #    os nomes das colunas, incluindo "Load/Building/Resource" e os IDs dos edifícios.
-    df.columns = df.iloc[0]  # Define a linha 0 como cabeçalho
-    df = df.iloc[1:]  # Remove a linha de cabeçalho que acabamos de usar
 
-    # 2) Remover colunas completamente vazias, se houver
+    # We assume that the first useful row of the DataFrame (df.iloc[0]) contains
+    #    the column names, including "Load/Building/Resource" and building IDs.
+    df.columns = df.iloc[0]  # Set row 0 as the header
+    df = df.iloc[1:]  # Remove the header row that we just used
+
+    #  Remove completely empty columns, if any
     df = df.dropna(axis=1, how="all")
 
-    # 3) Agora renomear a primeira coluna para "Load/Building/Resource"
-    #    e as demais colunas (que devem ser 1, 2, 3, ..., 39) para inteiros.
-    colunas_originais = list(df.columns)
-    # Exemplo: colunas_originais pode ser algo como [NaN, 1, 2, 3, ..., 39]
-    # ou ["Load/Building/Resource", 1, 2, 3, ..., 39].
-    # Precisamos garantir que a primeira seja "Load/Building/Resource" e as demais sejam int.
-    novas_colunas = ["Load/Building/Resource"]
+    #  Now rename the first column to "Load/Building/Resource"
+    #    and the remaining columns (which should be 1, 2, 3, ..., 39) to integers.
+    original_columns = list(df.columns)
+    # We need to ensure that the first one is "Load/Building/Resource" and the rest are integers.
+    new_columns = ["Load/Building/Resource"]
 
-    # Para as colunas restantes, convertemos para int, se possível
-    for c in colunas_originais[1:]:
+    # For the remaining columns, we convert to int if possible
+    for c in original_columns[1:]:
         try:
-            novas_colunas.append(int(c))
+            new_columns.append(int(c))
         except ValueError:
-            # Se não conseguir converter para int, você pode decidir o que fazer
-            # Ex.: deixar como string ou descartar. Aqui, deixamos como string mesmo.
-            novas_colunas.append(str(c))
+            # If unable to convert to int, you can decide what to do
+            new_columns.append(str(c))
 
-    df.columns = novas_colunas
+    df.columns = new_columns
 
-    # 4) Se a primeira linha do DataFrame duplicar o cabeçalho, removemos
-    #    (às vezes ocorre quando a planilha tem cabeçalho repetido).
-    #    Verifica se a primeira célula é "Load/Building/Resource".
+    #  If the first row of the DataFrame duplicates the header, remove it
+    #    (sometimes happens when the sheet has a repeated header).
+    #    Check if the first cell is "Load/Building/Resource".
     if df.iloc[0, 0] == "Load/Building/Resource":
         df = df.iloc[1:]
 
-    # 5) Definir "Load/Building/Resource" como índice
+    #  Set "Load/Building/Resource" as the index
     df = df.set_index("Load/Building/Resource")
 
-    # 6) Converter todos os valores para float (ou int), ignorando erros
+    #  Convert all values to float (or int), ignoring errors
     df = df.apply(pd.to_numeric, errors="coerce")
 
-    # ───────────── Salvar no dicionário data ─────────────
-    # Se quiser guardar como DataFrame:
-    # data["inside_max_temp_df"] = df
-
-    # Se quiser guardar como dicionário aninhado (cada linha vira chave, etc.):
+    # ───────────── Save to the data dictionary ─────────────
+    # If you want to store as a nested dictionary (each row becomes a key, etc.):
     data["inside_max_temp"] = df.to_dict(orient="index")
 
     # df_print = pd.DataFrame.from_dict(data["inside_max_temp"], orient="index")
     #
-    # print("\n--- Dados da aba 'Buildings - Max temperature' ---")
+    # print("\n--- Data from the 'Buildings - Max temperature' sheet ---")
     # print(df_print)
-    # print("--- Fim dos dados ---\n")
+    # print("--- End of data ---\n")
     return data
 
 
-def Buildings_min_temp(m,data):
+
+def Buildings_min_temp(m, data):
     sheet_name = "Buildings - Min temperature"
 
-    # Verificar se a aba existe no dicionário
+    # Check if the sheet exists in the data dictionary
     if sheet_name not in data:
-        print(f"Aba '{sheet_name}' não encontrada no dicionário de dados.")
+        print(f"Sheet '{sheet_name}' not found in the data dictionary.")
         return data
 
-    # Carregar o DataFrame e remover linhas totalmente vazias
+    # Load the DataFrame and remove completely empty rows
     df = data[sheet_name].dropna(how="all")
 
-    # ───────────── Ajustes de cabeçalho ─────────────
-    # 1) Vamos assumir que a primeira linha útil do DataFrame (df.iloc[0]) contém
-    #    os nomes das colunas, incluindo "Load/Building/Resource" e os IDs dos edifícios.
-    df.columns = df.iloc[0]  # Define a linha 0 como cabeçalho
-    df = df.iloc[1:]  # Remove a linha de cabeçalho que acabamos de usar
+    df.columns = df.iloc[0]  # Set row 0 as header
+    df = df.iloc[1:]  # Remove the header row that we just used
 
-    # 2) Remover colunas completamente vazias, se houver
+    #  Remove completely empty columns, if any
     df = df.dropna(axis=1, how="all")
 
-    # 3) Agora renomear a primeira coluna para "Load/Building/Resource"
-    #    e as demais colunas (que devem ser 1, 2, 3, ..., 39) para inteiros.
-    colunas_originais = list(df.columns)
-    # Exemplo: colunas_originais pode ser algo como [NaN, 1, 2, 3, ..., 39]
-    # ou ["Load/Building/Resource", 1, 2, 3, ..., 39].
-    # Precisamos garantir que a primeira seja "Load/Building/Resource" e as demais sejam int.
-    novas_colunas = ["Load/Building/Resource"]
+    #  Now rename the first column to "Load/Building/Resource"
 
-    # Para as colunas restantes, convertemos para int, se possível
-    for c in colunas_originais[1:]:
+    original_columns = list(df.columns)
+    # We need to ensure that the first one is "Load/Building/Resource" and the rest are integers.
+    new_columns = ["Load/Building/Resource"]
+
+    # For the remaining columns, we convert to int if possible
+    for c in original_columns[1:]:
         try:
-            novas_colunas.append(int(c))
+            new_columns.append(int(c))
         except ValueError:
-            # Se não conseguir converter para int, você pode decidir o que fazer
-            # Ex.: deixar como string ou descartar. Aqui, deixamos como string mesmo.
-            novas_colunas.append(str(c))
+            # If unable to convert to int, you can decide what to do
 
-    df.columns = novas_colunas
+            new_columns.append(str(c))
 
-    # 4) Se a primeira linha do DataFrame duplicar o cabeçalho, removemos
-    #    (às vezes ocorre quando a planilha tem cabeçalho repetido).
-    #    Verifica se a primeira célula é "Load/Building/Resource".
+    df.columns = new_columns
+
+    #  If the first row of the DataFrame duplicates the header, remove it
+
     if df.iloc[0, 0] == "Load/Building/Resource":
         df = df.iloc[1:]
 
-    # 5) Definir "Load/Building/Resource" como índice
+    #  Set "Load/Building/Resource" as the index
     df = df.set_index("Load/Building/Resource")
 
-    # 6) Converter todos os valores para float (ou int), ignorando erros
+    #  Convert all values to float (or int), ignoring errors
     df = df.apply(pd.to_numeric, errors="coerce")
-
-    # ───────────── Salvar no dicionário data ─────────────
-    # Se quiser guardar como DataFrame:
-    # data["inside_min_temp_df"] = df
-
-    # Se quiser guardar como dicionário aninhado (cada linha vira chave, etc.):
     data["inside_min_temp"] = df.to_dict(orient="index")
 
     df_print = pd.DataFrame.from_dict(data["inside_min_temp"], orient="index")
+    # print(f"Temperatures for Building {building}:")
+    # for hour in range(1, 25):  # Hours from 1 to 24
+    #     print(f"Hour {hour}: {data['inside_min_temp'][building][hour]}")
 
-    # Exemplo: Imprimir as temperaturas para o Edifício 1
-    # edificio = 15  # Altere o número do edifício conforme necessário
-    #
-    # print(f"Temperaturas para o Edifício {edificio}:")
-    # for hora in range(1, 25):  # Horas de 1 a 24
-    #     print(f"Hora {hora}: {data['inside_min_temp'][edificio][hora]}")
-
-    # print("\n--- Dados da aba 'Buildings - Min temperature' ---")
+    # print("\n--- Data from the 'Buildings - Min temperature' sheet ---")
     # print(df_print)
-    # print("--- Fim dos dados ---\n")
+    # print("--- End of data ---\n")
     return data
+
 
 
 
 def Outside_temp(m, data):
     sheet_name = "Outside_temperature"
-
-    # Verificar se a aba existe no dicionário
+    # Check if the sheet exists in the data dictionary
     if sheet_name not in data:
-        print(f"Aba '{sheet_name}' não encontrada no dicionário de dados.")
+        print(f"Sheet '{sheet_name}' not found in the data dictionary.")
         return data
 
-    # Carregar o DataFrame e remover linhas totalmente vazias
+    # Load the DataFrame and remove completely empty rows
     df = data[sheet_name].dropna(how="all")
 
-    # ───────────── Ajustes de cabeçalho ─────────────
-    # 1) Vamos assumir que a primeira linha útil do DataFrame (df.iloc[0]) contém
-    #    os nomes das colunas, incluindo "Load/Building/Resource" e os IDs dos edifícios.
-    df.columns = df.iloc[0]  # Define a linha 0 como cabeçalho
-    df = df.iloc[1:]  # Remove a linha de cabeçalho que acabamos de usar
 
-    # 2) Remover colunas completamente vazias, se houver
+    #  We assume that the first useful row of the DataFrame (df.iloc[0]) contains
+
+    df.columns = df.iloc[0]  # Set row 0 as header
+    df = df.iloc[1:]  # Remove the header row that we just used
+
+    #  Remove completely empty columns, if any
     df = df.dropna(axis=1, how="all")
 
-    # 3) Agora renomear a primeira coluna para "Load/Building/Resource"
-    #    e as demais colunas (que devem ser 1, 2, 3, ..., 39) para inteiros.
-    colunas_originais = list(df.columns)
-    # Exemplo: colunas_originais pode ser algo como [NaN, 1, 2, 3, ..., 39]
-    # ou ["Load/Building/Resource", 1, 2, 3, ..., 39].
-    # Precisamos garantir que a primeira seja "Load/Building/Resource" e as demais sejam int.
-    novas_colunas = ["Load/Building/Resource"]
+    #  Now rename the first column to "Load/Building/Resource"
+    original_columns = list(df.columns)
+    new_columns = ["Load/Building/Resource"]
 
-    # Para as colunas restantes, convertemos para int, se possível
-    for c in colunas_originais[1:]:
+    # For the remaining columns, we convert to int if possible
+    for c in original_columns[1:]:
         try:
-            novas_colunas.append(int(c))
+            new_columns.append(int(c))
         except ValueError:
-            # Se não conseguir converter para int, você pode decidir o que fazer
-            # Ex.: deixar como string ou descartar. Aqui, deixamos como string mesmo.
-            novas_colunas.append(str(c))
+            # If unable to convert to int, you can decide what to do
+            new_columns.append(str(c))
 
-    df.columns = novas_colunas
+    df.columns = new_columns
 
-    # 4) Se a primeira linha do DataFrame duplicar o cabeçalho, removemos
-    #    (às vezes ocorre quando a planilha tem cabeçalho repetido).
-    #    Verifica se a primeira célula é "Load/Building/Resource".
+    #  If the first row of the DataFrame duplicates the header, remove it
+
     if df.iloc[0, 0] == "Load/Building/Resource":
         df = df.iloc[1:]
 
-    # 5) Definir "Load/Building/Resource" como índice
+    #  Set "Load/Building/Resource" as the index
     df = df.set_index("Load/Building/Resource")
 
-    # 6) Converter todos os valores para float (ou int), ignorando erros
+    #  Convert all values to float (or int), ignoring errors
     df = df.apply(pd.to_numeric, errors="coerce")
-
-    # ───────────── Salvar no dicionário data ─────────────
-    # Se quiser guardar como DataFrame:
-    # data["outside_temp_df"] = df
-
-    # Se quiser guardar como dicionário aninhado (cada linha vira chave, etc.):
     data["outside_temp"] = df.to_dict(orient="index")
-
     # df_print = pd.DataFrame.from_dict(data["outside_temp"], orient="index")
     #
-    # print("\n--- Dados da aba 'Outside_temperature' ---")
+    # print("\n--- Data from the 'Outside_temperature' sheet ---")
     # print(df_print)
-    # print("--- Fim dos dados ---\n")
+    # print("--- End of data ---\n")
     return data
 
 
-def Heat_Gains_losses(m,data):
+
+def Heat_Gains_losses(m, data):
     sheet_name = "Heat_Gains_Losses"
 
-    # Verificar se a aba existe no dicionário
+    # Check if the sheet exists in the data dictionary
     if sheet_name not in data:
-        print(f"Aba '{sheet_name}' não encontrada no dicionário de dados.")
+        print(f"Sheet '{sheet_name}' not found in the data dictionary.")
         return data
 
-    # Carregar o DataFrame e remover linhas totalmente vazias
+    # Load the DataFrame and remove completely empty rows
     df = data[sheet_name].dropna(how="all")
 
-    # ───────────── Ajustes de cabeçalho ─────────────
-    # 1) Vamos assumir que a primeira linha útil do DataFrame (df.iloc[0]) contém
-    #    os nomes das colunas, incluindo "Load/Building/Resource" e os IDs dos edifícios.
-    df.columns = df.iloc[0]  # Define a linha 0 como cabeçalho
-    df = df.iloc[1:]  # Remove a linha de cabeçalho que acabamos de usar
+    # Set the first row as header
+    df.columns = df.iloc[0]  # Set row 0 as header
+    df = df.iloc[1:]  # Remove the header row that we just used
+    df = df.dropna(axis=1, how="all")  # Remove completely empty columns
 
-    # 2) Remover colunas completamente vazias, se houver
-    df = df.dropna(axis=1, how="all")
+    original_columns = list(df.columns)
+    new_columns = ["Load/Building/Resource"]
 
-    # 3) Agora renomear a primeira coluna para "Load/Building/Resource"
-    #    e as demais colunas (que devem ser 1, 2, 3, ..., 39) para inteiros.
-    colunas_originais = list(df.columns)
-    # Exemplo: colunas_originais pode ser algo como [NaN, 1, 2, 3, ..., 39]
-    # ou ["Load/Building/Resource", 1, 2, 3, ..., 39].
-    # Precisamos garantir que a primeira seja "Load/Building/Resource" e as demais sejam int.
-    novas_colunas = ["Load/Building/Resource"]
-
-    # Para as colunas restantes, convertemos para int, se possível
-    for c in colunas_originais[1:]:
+    # Try to convert columns to integers if possible
+    for c in original_columns[1:]:
         try:
-            novas_colunas.append(int(c))
+            new_columns.append(int(c))
         except ValueError:
-            # Se não conseguir converter para int, você pode decidir o que fazer
-            # Ex.: deixar como string ou descartar. Aqui, deixamos como string mesmo.
-            novas_colunas.append(str(c))
+            # If unable to convert to int, leave as string
+            new_columns.append(str(c))
 
-    df.columns = novas_colunas
+    df.columns = new_columns
 
-    # 4) Se a primeira linha do DataFrame duplicar o cabeçalho, removemos
-    #    (às vezes ocorre quando a planilha tem cabeçalho repetido).
-    #    Verifica se a primeira célula é "Load/Building/Resource".
+    # If the first row duplicates the header, remove it
     if df.iloc[0, 0] == "Load/Building/Resource":
         df = df.iloc[1:]
 
-    # 5) Definir "Load/Building/Resource" como índice
+    # Set "Load/Building/Resource" as the index
     df = df.set_index("Load/Building/Resource")
 
-    # 6) Converter todos os valores para float (ou int), ignorando erros
+    # Convert all values to float (or int), ignoring errors
     df = df.apply(pd.to_numeric, errors="coerce")
 
-    # ───────────── Salvar no dicionário data ─────────────
-    # Se quiser guardar como DataFrame:
-    # data["loss_temp_df"] = df
-
-    # Se quiser guardar como dicionário aninhado (cada linha vira chave, etc.):
+    # Save the data to the dictionary
     data["loss_temp"] = df.to_dict(orient="index")
 
-    df_print = pd.DataFrame.from_dict(data["loss_temp"], orient="index")
-
-    # print("\n--- Dados da aba 'Heat_Gains_Losses' ---")
+    # Optional: Print the DataFrame (for debugging purposes)
+    # df_print = pd.DataFrame.from_dict(data["loss_temp"], orient="index")
+    # print("\n--- Data from the 'Heat_Gains_Losses' sheet ---")
     # print(df_print)
-    # print("--- Fim dos dados ---\n")
+    # print("--- End of data ---\n")
+
     return data
 
 
 def Weather_forecasts(m, data):
-    # Caminho do arquivo fixo dentro da função
+    # Fixed file path inside the function
     file_path = "Input Data - Other.xlsx"
 
-    # Carregar o arquivo Excel
+    # Load the Excel file
     df = pd.read_excel(file_path, sheet_name="Weather forecasts")
 
+    # The first row contains the "Hours", so we get these columns
+    hours = df.columns[1:].values  # Extracts the hours (first row without the column index)
 
-
-    # A primeira linha contém as "Hours", então pegamos essas colunas
-    hours = df.columns[1:].values  # Extrai as horas (primeira linha sem o índice da coluna)
-
-    # Agora, pegamos as linhas para as variáveis solares, velocidade do vento e temperatura externa
+    # Now, get the rows for solar variables, wind speed, and outside temperature
     solar_profile = df.iloc[0, 1:].apply(pd.to_numeric, errors='coerce').values
     wind_speed = df.iloc[1, 1:].apply(pd.to_numeric, errors='coerce').values
 
-
-    # Organizando os dados em um dicionário
+    # Organizing the data into a dictionary
     weather_data = {
-        "hours": hours,  # As horas
-        "solar_profile": solar_profile,  # Perfil solar
-        "wind_speed": wind_speed,  # Velocidade do vento
-
+        "hours": hours,  # The hours
+        "solar_profile": solar_profile,  # Solar profile
+        "wind_speed": wind_speed,  # Wind speed
     }
 
-    # Adicionar os dados processados ao dicionário de dados
+    # Add the processed data to the data dictionary
     data["weather_forecasts"] = weather_data
 
-    # print("\n--- Dados de Weather Forecasts ---")
+    # print("\n--- Weather Forecast Data ---")
     #
-    # # Dados solares
+    # # Solar data
     # solar_data = data["weather_forecasts"]["solar_profile"]
-    # print("\nPerfil Solar para as 24 horas:")
+    # print("\nSolar Profile for the 24 hours:")
     # for h in range(1, 25):
-    #     print(f"Hora {h}: {solar_data[h - 1]}")
+    #     print(f"Hour {h}: {solar_data[h - 1]}")
     #
-    # # Dados de velocidade do vento
+    # # Wind speed data
     # wind_data = data["weather_forecasts"]["wind_speed"]
-    # print("\nVelocidade do Vento para as 24 horas:")
+    # print("\nWind Speed for the 24 hours:")
     # for h in range(1, 25):
-    #     print(f"Hora {h}: {wind_data[h - 1]}")
+    #     print(f"Hour {h}: {wind_data[h - 1]}")
     #
-    # print("\n--- Fim dos dados ---")
+    # print("\n--- End of data ---")
 
     return data
 
 
-def process_prices(m, data):
-    file_path = "Input Data - Other.xlsx"  # Caminho correto do arquivo
-    sheet_name = "Prices"  # Nome exato da aba
 
-    # Ler a planilha, garantindo que o primeiro cabeçalho seja tratado corretamente
+def process_prices(m, data):
+    file_path = "Input Data - Other.xlsx"  # Correct file path
+    sheet_name = "Prices"  # Sheet name
+
+    # Read the sheet, ensuring the first header is treated correctly
     df = pd.read_excel(file_path, sheet_name=sheet_name)
 
-    # Definir a primeira coluna como índice corretamente
+    # Set the first column as the index correctly
     df = df.set_index(df.columns[0])
 
-    # Renomear o índice para "Parameters" para evitar problemas
+    # Rename the index to "Parameters" to avoid issues
     df.index.name = "Parameters"
 
-    # Converter valores para float (evitar erros de formatação)
+    # Convert values to float (to avoid formatting errors)
     df = df.apply(pd.to_numeric, errors="coerce")
 
-    # Salvar os preços no dicionário `data`
+    # Save the prices in the 'data' dictionary
     data["prices"] = df.to_dict(orient="index")
 
-    # # Impressão correta, garantindo que o índice apareça como "Parameters"
-    # print("\n--- Dados da aba 'Prices' ---")
+    # # Correct printing, ensuring the index appears as "Parameters"
+    # print("\n--- Data from the 'Prices' sheet ---")
     # print(df.to_string(index=True))
-    # print("--- Fim dos dados ---\n")
+    # print("--- End of data ---\n")
 
     return data
 

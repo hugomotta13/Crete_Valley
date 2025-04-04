@@ -66,9 +66,9 @@ def define_heat_pump_variables(m,data):
     m.P_HP_max =pe.Param(m.building, initialize=data["Heat Pump"]["Maximum heat pump power (kW)"], within=pe.NonNegativeReals)
     def thermal_constant_rule(m, b):
         if pe.value(m.Installed_HP[b]) == 0:
-            return 0  # Se o prédio não tem HP, retorna 0
+            return 0  # If the building does not have a heat pump (HP), set the value to 0
 
-        # Garantindo que todos os valores sejam numéricos antes da multiplicação
+        # Ensuring all values are numeric before multiplication
         delta_t = pe.value(m.Delta_t[b])
         capacitance = pe.value(m.Thermal_Capacitance[b])
         resistance = pe.value(m.Thermal_Resistance[b])
@@ -87,6 +87,7 @@ def define_heat_pump_variables(m,data):
         m.building, m.hours,
         initialize={(b, h): data["inside_max_temp"][b][h] for b in m.building for h in m.hours},
         within=pe.Reals)
+
     m.Outside_Temperature = pe.Param(
         m.building, m.hours,
         initialize={(b, h): data["outside_temp"][b][h] for b in m.building for h in m.hours},
@@ -115,14 +116,14 @@ def define_heat_pump_variables(m,data):
     m.U_HP = pe.Var(m.building,  m.hours, domain=pe.NonNegativeReals)
     m.D_HP = pe.Var(m.building,  m.hours, domain=pe.NonNegativeReals)
     m.Theta_E = pe.Var(m.building, m.extended_hours, within=pe.Reals, initialize=0)  # Building temperature
-    m.Theta_U = pe.Var(m.building, m.extended_hours, within=pe.Reals, initialize=0)  # Positive temperature deviation
-    m.Theta_D = pe.Var(m.building, m.extended_hours, within=pe.Reals, initialize=0)  # Negative temperature deviation
+    m.Theta_U = pe.Var(m.building, m.extended_hours, within=pe.Reals, initialize=0)
+    m.Theta_D = pe.Var(m.building, m.extended_hours, within=pe.Reals, initialize=0)
 
-    # print("\n--- Checando m.Outside_Temperature ---")
+    # print("\n--- Checking m.Outside_Temperature ---")
     # for b in m.building:
     #     for h in m.hours:
     #         print(f"Building {b}, Hour {h}: {m.Outside_Temperature[b, h]}")
-    # print("--- Fim da checagem ---\n")
+    # print("--- End of checking ---\n")
 
 
     return m
@@ -157,7 +158,7 @@ def define_pv_variables(m, data):
     # for b in m.building:
     #     for t in m.hours:
     #         print(f"Building {b}, Hour {t}: PV_max = {pe.value(m.PV_max[b])}, alpha = {pe.value(m.alpha[b, t])}")
-    # print("--- Fim dos dados ---\n")
+    # print("--- End ---\n")
 
     return m
 
@@ -301,19 +302,19 @@ def define_hydrogen_variables(m, data):
     m.gamma_H2 =  pe.Param(m.building, initialize=data["Hydrogen Storage"]["Sto Self-discharge Rate"],
                               within=pe.NonNegativeReals)
 
-    print("\n--- Hydrogen Storage Parameters ---")
-    for b in m.building:
-        print(f"Building {b}:")
-        print(f"  Installed_HSS         = {pe.value(m.Installed_HSS[b])}")
-        print(f"  SOC_Sto_H2_0          = {pe.value(m.SOC_Sto_H2_0[b])}")
-        print(f"  SOC_H2_min            = {pe.value(m.SOC_H2_min[b])}")
-        print(f"  SOC_H2_max            = {pe.value(m.SOC_H2_max[b])}")
-        print(f"  eta_H2_plus           = {pe.value(m.eta_H2_plus[b])}")
-        print(f"  eta_H2_minus          = {pe.value(m.eta_H2_minus[b])}")
-        print(f"  P_Sto_H2_max_up       = {pe.value(m.P_Sto_H2_max_up[b])}")
-        print(f"  P_Sto_H2_max_down     = {pe.value(m.P_Sto_H2_max_down[b])}")
-        print(f"  gamma_H2              = {pe.value(m.gamma_H2[b])}")
-    print("--- Fim dos parâmetros de Hydrogen Storage ---\n")
+    # print("\n--- Hydrogen Storage Parameters ---")
+    # for b in m.building:
+    #     print(f"Building {b}:")
+    #     print(f"  Installed_HSS         = {pe.value(m.Installed_HSS[b])}")
+    #     print(f"  SOC_Sto_H2_0          = {pe.value(m.SOC_Sto_H2_0[b])}")
+    #     print(f"  SOC_H2_min            = {pe.value(m.SOC_H2_min[b])}")
+    #     print(f"  SOC_H2_max            = {pe.value(m.SOC_H2_max[b])}")
+    #     print(f"  eta_H2_plus           = {pe.value(m.eta_H2_plus[b])}")
+    #     print(f"  eta_H2_minus          = {pe.value(m.eta_H2_minus[b])}")
+    #     print(f"  P_Sto_H2_max_up       = {pe.value(m.P_Sto_H2_max_up[b])}")
+    #     print(f"  P_Sto_H2_max_down     = {pe.value(m.P_Sto_H2_max_down[b])}")
+    #     print(f"  gamma_H2              = {pe.value(m.gamma_H2[b])}")
+    # print("--- End of Hydrogen Storage parameters ---\n")
 
     # variables
     def SOC_H2_bounds(m, j, t):
@@ -348,14 +349,14 @@ def define_electrolyzer_P2G_variables(m, data):
                                within=pe.NonNegativeReals)
     # m.P2G_Load_H2 = pe.Param(P2G_ids, initialize=P2G_Load_H2_dict)
 
-    # print("\n--- Verificando parâmetros do Eletrólise P2G ---")
+    # print("\n--- Checking P2G Electrolysis parameters ---")
     # for b in m.building:
     #     print(f"Edifício {b}:")
     #     print(f"  Installed_P2G = {pe.value(m.Installed_P2G[b])}")
     #     print(f"  eta_P2G       = {pe.value(m.eta_P2G[b])}")
     #     print(f"  P2G_E_min     = {pe.value(m.P2G_E_min[b])}")
     #     print(f"  P2G_E_max     = {pe.value(m.P2G_E_max[b])}")
-    # print("--- Fim da verificação ---\n")
+    # print("---  End of verification ---\n")
 
     #variables
     m.P2G_H2 = pe.Var(m.building, m.hours, within=pe.NonNegativeReals)
@@ -391,13 +392,13 @@ def define_fuel_cell_variables(m, data):
     m.U_FC_E = pe.Var(m.building, m.hours, within=pe.NonNegativeReals)
     m.D_FC_E = pe.Var(m.building, m.hours, within=pe.NonNegativeReals)
 
-    # print("\n--- Verificando parâmetros da Fuel Cell ---")
+    # print("\n--- Checking   Fuel Cell parameters ---")
     # for b in m.building:
     #     print(f"Edifício {b}:")
     #     print(f"  Installed_FC   = {pe.value(m.Installed_FC[b])}")
     #     print(f"  eta_FC         = {pe.value(m.eta_FC[b])}")
     #     print(f"  P_FC_H2_max    = {pe.value(m.P_FC_H2_max[b])}")
-    # print("--- Fim da verificação ---\n")
+    # print("--- End of verification---\n")
 
     return m
 
@@ -429,7 +430,7 @@ def define_electric_vehicle_variables(m, data):
     m.SOC_EV_DE = pe.Param(m.building, initialize=data["Electric vehicle"]["EV Departure SOC"])
     m.t_AR = pe.Param(m.building, initialize=data["Electric vehicle"]["EV Arrival time"])
     m.t_DE = pe.Param(m.building, initialize=data["Electric vehicle"]["EV Departure Time"])
-    # print("\n--- Parâmetros dos Veículos Elétricos ---")
+    # print("\n--- EV parameters ---")
     # for ev in m.building:
     #     print(f"\nVeículo: {ev}")
     #     print(f"  P_EV_maxup       = {pe.value(m.P_EV_maxup[ev])}")
@@ -444,7 +445,7 @@ def define_electric_vehicle_variables(m, data):
     #     print(f"  t_AR             = {pe.value(m.t_AR[ev])}")
     #     print(f"  t_DE             = {pe.value(m.t_DE[ev])}")
     #     print(f"  big_M            = {pe.value(m.big_M[ev])}")
-    # print("\n--- Fim dos parâmetros ---\n")
+    # print("\n--- End of verification ---\n")
 
     return m
 
@@ -465,7 +466,7 @@ def define_wind_turbine_variables(m,data):
                               within=pe.NonNegativeReals)
     m.VR = pe.Param(m.building, initialize=data["Wind Turbine"]["Rated Wind Speed"],
                               within=pe.NonNegativeReals)
-    # print("\n--- Parâmetros das Turbinas Eólicas ---")
+    # print("\n--- Wind turbine parameter ---")
     # for b in m.building:
     #     print(f"\nEdifício: {b}")
     #     print(f"  Installed_WT = {pe.value(m.Installed_WT[b])}")
@@ -476,7 +477,7 @@ def define_wind_turbine_variables(m,data):
     #     print("  Wind speed profile:")
     #     for t in m.hours:
     #         print(f"    Hour {t}: {pe.value(m.wind_speed[b, t])}")
-    # print("\n--- Fim dos parâmetros das turbinas eólicas ---\n")
+    # print("\n--- End of Wind turbine parameter---\n")
 
     m.P_wind_E= pe.Var(m.building, m.hours,within=pe.NonNegativeReals )
     m.U_wind=pe.Var(m.building, m.hours,within=pe.NonNegativeReals )
@@ -522,6 +523,7 @@ def define_biomass_boiler(m,data):
     return m
 
 
+# Define all variables for the model by calling individual functions for each component
 def define_all_variables(m, data):
     define_electric_load(m, data)
     define_chp_variables(m, data)

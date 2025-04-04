@@ -13,27 +13,27 @@ def define_wind_turbine_constraints(m):
                 V = m.wind_speed[j, t]
 
                 if V < VI or V >= VO:
-                    m.c1.add(m.P_wind_E[j, t] <= 0)  # Sem geração
+                    m.c1.add(m.P_wind_E[j, t] <= 0)  # No generation
                 elif VI <= V < VR:
                     m.c1.add(m.P_wind_E[j, t] <= (P_nom / (VR - VI)) * V + P_nom * (
-                                1 - (VR / (VR - VI))))  # Crescimento linear
+                                1 - (VR / (VR - VI))))  # Linear growth
                 elif VR <= V < VO:
-                    m.c1.add(m.P_wind_E[j, t] <= P_nom)  # Potência nominal
+                    m.c1.add(m.P_wind_E[j, t] <= P_nom)  # Nominal power
 
-                if V < VI or V >= VO:
-                    m.c1.add(m.U_wind[j, t] == 0)  # Sem reserva ascendente se a turbina estiver desligada
+                if V < VI or V >= VO: # No upward,Downward reserves if the turbine is off
+                    m.c1.add(m.U_wind[j, t] == 0)
                     m.c1.add(m.D_wind[j, t] == 0)
-                elif VI <= V < VR:
+                elif VI <= V < VR:   # Upward,Downward flexibility
                     m.c1.add(
                         m.U_wind[j, t] <= ((P_nom / (VR - VI)) * V + P_nom * (1 - (VR / (VR - VI)))) - m.P_wind_E[
-                            j, t])  # Flexibilidade ascendente
+                            j, t])
                     m.c1.add(m.D_wind[j, t] <= m.P_wind_E[j, t])
-                elif VR <= V < VO:
-                    m.c1.add(m.U_wind[j, t] <= P_nom - m.P_wind_E[j, t])  # Flexibilidade ascendente
+                elif VR <= V < VO:  # Upward,Downward flexibility
+                    m.c1.add(m.U_wind[j, t] <= P_nom - m.P_wind_E[j, t])
                     m.c1.add(m.D_wind[j, t] <= m.P_wind_E[j, t])
 
         else:
             for t in m.hours:
               m.c1.add(m.P_wind_E[j, t]==0)
-              m.c1.add(m.U_wind[j, t] == 0)  # Sem reserva ascendente se a turbina estiver desligada
+              m.c1.add(m.U_wind[j, t] == 0)  # No upward, Downward reserves if the turbine is off
               m.c1.add(m.D_wind[j, t] == 0)

@@ -11,13 +11,13 @@ def define_Eletric_Vehicles_constraints(m):
                 t_ar = pe.value(m.t_AR[j])
                 t_de = pe.value(m.t_DE[j])
 
-                # Define se o veículo está ativo nesse horário
+                # Define if the vehicle is active at this time
                 if t_ar <= t <= t_de:
                     m.b_active[j, t] = 1
                 else:
                     m.b_active[j, t] = 0
 
-                # Atualização do SOC
+                # Update the SOC (State of Charge)
                 m.c1.add(
                     m.SOC_EV_E[j, t + 1] == m.SOC_EV_E[j, t] +
                     (m.P_EV_E_charge[j, t] * m.eta_EV_up[j] - m.P_EV_E_discharge[j, t] / m.eta_EV_down[j]) * m.b_active[
@@ -32,18 +32,18 @@ def define_Eletric_Vehicles_constraints(m):
                 m.c1.add(m.P_EV_E_charge_dot[j, t] <= m.P_EV_maxup[j] * m.b_active[j, t])
                 m.c1.add(m.P_EV_E_discharge_dot[j, t] <= m.P_EV_maxdown[j] * m.b_active[j, t])
 
-                # Restrições adicionais
+                # Charging and discharging constraints
                 m.c1.add(
                     m.P_EV_E_discharge[j, t] + m.P_EV_E_discharge_dot[j, t] <= (1 - m.b_EV_E[j, t]) * m.P_EV_maxdown[j])
                 m.c1.add(m.P_EV_E_charge[j, t] + m.P_EV_E_charge_dot[j, t] <= m.b_EV_E[j, t] * m.P_EV_maxup[j])
 
-                # Garantir não-negatividade
+                # Ensure non-negativity
                 m.c1.add(m.P_EV_E_discharge[j, t] >= 0)
                 m.c1.add(m.P_EV_E_discharge_dot[j, t] >= 0)
                 m.c1.add(m.P_EV_E_charge[j, t] >= 0)
                 m.c1.add(m.P_EV_E_charge_dot[j, t] >= 0)
 
-                # Restrições nos tempos de chegada e saída
+                # Arrival and departure time constraints
                 if t == t_ar:
                     m.c1.add(m.SOC_EV_E[j, t_ar] == m.SOC_EV_AR[j])
                 if t == t_de:
@@ -53,7 +53,7 @@ def define_Eletric_Vehicles_constraints(m):
                     m.c1.add(m.P_EV_E_charge[j, t] == 0)
 
             else:
-                # Se não há veículo instalado: tudo zerado
+                # If no vehicle is installed: set everything to zero
                 m.b_active[j, t] = 0
                 m.c1.add(m.SOC_EV_E[j, t + 1] == m.SOC_EV_E[j, t])
                 m.c1.add(m.P_EV_E_charge[j, t] == 0)

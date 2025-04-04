@@ -5,14 +5,17 @@ def define_chp_constraints(m):
     for j in m.building:
         if pe.value(m.Installed_CHP[j]) == 1:
             for t in m.hours:
-                # Main CHP operation
+                # Define the gas consumption range for the CHP within the specified minimum and maximum limits
                 m.c1.add(m.P_CHPG[j, t] >= m.P_CHPG_min[j])
                 m.c1.add(m.P_CHPG[j, t] <= m.P_CHPG_max[j])
+
+                # Define electricity generation by CHP based on its gas consumption and efficiency
                 m.c1.add(m.P_CHPE[j, t] == m.N_CHP_E_efficiency[j] * m.P_CHPG[j, t])
 
-
-
+                # Limit heat generation to the CHP's heat load capacity
                 m.c1.add(m.P_CHPH[j, t] <= m.P_loadCHP[j, t])
+
+                # Define heat generation by CHP based on its gas consumption and efficiency
                 m.c1.add(m.P_CHPH[j, t] == m.N_CHP_H_efficiency[j] * m.P_CHPG[j, t])
 
                 # Reserves (Up and Down)

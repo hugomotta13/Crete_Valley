@@ -11,7 +11,7 @@ def save_results_to_excel(m, output_file="final_results_crete_valley.xlsx"):
     building = list(m.building)
 
     with pd.ExcelWriter(output_file) as writer:
-        # Resultados globais
+        # Global results
         df = pd.DataFrame({
             "Hour": hours,
             "Electric Energy Balance": [pe.value(m.E_E[t]) for t in hours],
@@ -19,7 +19,7 @@ def save_results_to_excel(m, output_file="final_results_crete_valley.xlsx"):
             "Hydrogen Consumption": [pe.value(m.E_H2[t]) for t in hours],
             "Boiler Energy Consumption": [pe.value(m.E_B[t]) for t in hours],
             "Thermal Energy Consumption": [pe.value(m.E_H[t]) for t in hours],
-            # Adicione outros se necessário
+
         })
         df.to_excel(writer, sheet_name='Results', index=False)
         if all(hasattr(m, attr) for attr in ['Fe', 'Fg', 'F_H2', 'F_H2O', 'F_reserve', 'F_Boiler']):
@@ -33,7 +33,6 @@ def save_results_to_excel(m, output_file="final_results_crete_valley.xlsx"):
                 "Boiler Cost (F_Boiler)": [pe.value(m.F_Boiler[t]) for t in m.hours],
             })
 
-            # Adiciona uma nova coluna com o custo total por hora
             df_costs["Total Cost per Hour"] = df_costs[
                 ["Electricity Cost (Fe)", "Natural Gas Cost (Fg)",
                  "Hydrogen Cost (F_H2)", "Water Cost (F_H2O)", "Boiler Cost (F_Boiler)"]
@@ -41,7 +40,7 @@ def save_results_to_excel(m, output_file="final_results_crete_valley.xlsx"):
 
             # Salva no Excel
             df_costs.to_excel(writer, sheet_name="Energy_Costs_Overview", index=False)
-        # PV
+        # Save results PV
         pd.DataFrame().to_excel(writer, sheet_name="PV_Results")
 
         start_col = 0
@@ -67,7 +66,7 @@ def save_results_to_excel(m, output_file="final_results_crete_valley.xlsx"):
 
                 start_col += len(df_pv.columns) + 1  # pula uma coluna entre os blocos
 
-        # HP
+        # Save results HP
         pd.DataFrame().to_excel(writer, sheet_name="HP_Results_SideBySide")
 
         start_col = 0
@@ -92,10 +91,10 @@ def save_results_to_excel(m, output_file="final_results_crete_valley.xlsx"):
                 index=False
             )
 
-            start_col += len(df_hp.columns) + 1  # pula uma coluna entre blocos
-        # Coleta dados de temperatura apenas dos edifícios com HP instalado
-        # Temperaturas das bombas de calor
-        pd.DataFrame().to_excel(writer, sheet_name="Temperatures_HP")  # Cria aba vazia
+            start_col += len(df_hp.columns) + 1  # Skip one column between blocks
+
+        # Heat pump temperatures
+        pd.DataFrame().to_excel(writer, sheet_name="Temperatures_HP")  # Create an empty sheet
         start_col = 0
         for j in m.building:
             if pe.value(m.Installed_HP[j]) == 1:
@@ -115,7 +114,7 @@ def save_results_to_excel(m, output_file="final_results_crete_valley.xlsx"):
                     startcol=start_col,
                     index=False
                 )
-                start_col += len(df_temp.columns) + 1  # Espaço entre blocos
+                start_col += len(df_temp.columns) + 1  # Skip one column between blocks
 
         # CHP
         pd.DataFrame().to_excel(writer, sheet_name="CHP_Results")
@@ -133,7 +132,7 @@ def save_results_to_excel(m, output_file="final_results_crete_valley.xlsx"):
                     f"D_CHPG_{j}": [pe.value(m.D_CHPG[j, t]) for t in m.hours],
                     f"U_CHPG_{j}": [pe.value(m.U_CHPG[j, t]) for t in m.hours],
                 })
-                # Adiciona a coluna de hora apenas uma vez (na primeira iteração)
+                # Add the hour column only once (in the first iteration)
                 if start_col == 0:
                     df_chp.insert(0, "Hour", list(m.hours))
                 df_chp.to_excel(
@@ -143,7 +142,7 @@ def save_results_to_excel(m, output_file="final_results_crete_valley.xlsx"):
                     startcol=start_col,
                     index=False
                 )
-                start_col += len(df_chp.columns) + 1  # pula uma coluna entre blocos
+                start_col += len(df_chp.columns) + 1
 
         # Battery
         pd.DataFrame().to_excel(writer, sheet_name="Battery_Results")
@@ -176,7 +175,7 @@ def save_results_to_excel(m, output_file="final_results_crete_valley.xlsx"):
                 start_col += len(df_battery.columns) + 1  # Skip one column between blocks
 
         # P2G (Power to Gas)
-        pd.DataFrame().to_excel(writer, sheet_name="P2G_Results")  # Cria a aba
+        pd.DataFrame().to_excel(writer, sheet_name="P2G_Results")
         start_col = 0
 
         for j in m.building:
@@ -188,8 +187,6 @@ def save_results_to_excel(m, output_file="final_results_crete_valley.xlsx"):
                     f"D_P2G_E_{j}": [pe.value(m.D_P2G_E[j, t]) for t in m.hours],
 
                 })
-
-                # Adiciona a coluna "Hour" só na primeira vez
                 if start_col == 0:
                     df_p2g.insert(0, "Hour", list(m.hours))
 
@@ -201,13 +198,13 @@ def save_results_to_excel(m, output_file="final_results_crete_valley.xlsx"):
                     index=False
                 )
 
-                # Pula uma coluna entre os blocos de edifícios
+                # Skip one column between the building blocks
                 start_col += len(df_p2g.columns) + 1
         # Hydrogen Storage
         pd.DataFrame().to_excel(writer, sheet_name="Hydrogen_Storage_Results")
         start_col = 0
         for j in m.building:
-            if pe.value(m.Installed_ESS[j]) == 1:  # ESS representa storage de hidrogênio no seu modelo
+            if pe.value(m.Installed_ESS[j]) == 1:
                 df_h2 = pd.DataFrame({
                     f"P_Sto_charge_H2_{j}": [pe.value(m.P_Sto_charge_H2[j, t]) for t in m.hours],
                     f"P_Sto_discharge_H2_{j}": [pe.value(m.P_Sto_discharge_H2[j, t]) for t in m.hours],
@@ -226,7 +223,7 @@ def save_results_to_excel(m, output_file="final_results_crete_valley.xlsx"):
                     startcol=start_col,
                     index=False
                 )
-                start_col += len(df_h2.columns) + 1  # Pulando 1 coluna entre blocos
+                start_col += len(df_h2.columns) + 1
         # Fuel Cell
         pd.DataFrame().to_excel(writer, sheet_name="FC_Results")
         start_col = 0
@@ -247,9 +244,9 @@ def save_results_to_excel(m, output_file="final_results_crete_valley.xlsx"):
                     startcol=start_col,
                     index=False
                 )
-                start_col += len(df_fc.columns) + 1  # espaçamento entre prédios
+                start_col += len(df_fc.columns) + 1
 
-        # Inicializa a aba no Excel para os resultados de EVs
+        # EV results
         pd.DataFrame().to_excel(writer, sheet_name="EV_Results")
         start_col = 0
 
@@ -276,9 +273,9 @@ def save_results_to_excel(m, output_file="final_results_crete_valley.xlsx"):
                     index=False
                 )
 
-                start_col += len(df_ev.columns) + 1  # Espaço entre blocos
+                start_col += len(df_ev.columns) + 1
         # --- Wind Turbine ---
-        pd.DataFrame().to_excel(writer, sheet_name="Wind_Turbine_Results")  # cria aba
+        pd.DataFrame().to_excel(writer, sheet_name="Wind_Turbine_Results")
         start_col = 0
         for j in m.building:
             if pe.value(m.Installed_WT[j]) == 1:
@@ -298,9 +295,9 @@ def save_results_to_excel(m, output_file="final_results_crete_valley.xlsx"):
                     startcol=start_col,
                     index=False
                 )
-                start_col += len(df_wind.columns) + 1  # Espaço entre turbinas
-        #Boiler
-        pd.DataFrame().to_excel(writer, sheet_name="Boiler_Results")  # cria aba vazia primeiro
+                start_col += len(df_wind.columns) + 1
+        # Boiler
+        pd.DataFrame().to_excel(writer, sheet_name="Boiler_Results")
         start_col = 0
         for j in m.building:
             if pe.value(m.Installed_BB[j]) == 1:
@@ -326,13 +323,13 @@ def save_results_to_excel(m, output_file="final_results_crete_valley.xlsx"):
                     startcol=start_col,
                     index=False
                 )
-                start_col += len(df_boiler.columns) + 1  # Espaço entre blocos de prédios
+                start_col += len(df_boiler.columns) + 1
 
     return m
 
 
 def plot_results(m, output_folder="plot_result"):
-    # Garante que a pasta de saída existe e está limpa
+    # Ensures the output folder exists and is clean
     if not os.path.exists(output_folder):
         os.makedirs(output_folder)
     for f in os.listdir(output_folder):
@@ -467,6 +464,7 @@ def plot_results(m, output_folder="plot_result"):
             plt.tight_layout()
             plt.savefig(os.path.join(output_folder, f"battery_{j}_charge_discharge.png"), dpi=300)
             plt.close()
+    #  P2G Electricity and Hydrogen Bids
     for j in m.building:
         if pe.value(m.Installed_P2G[j]) == 1:
             hours = list(m.hours)
@@ -485,8 +483,8 @@ def plot_results(m, output_folder="plot_result"):
             plt.close()
 
             plt.figure(figsize=(10, 6))
-            bar_width = 0.2  # Largura das barras
-            x = range(len(hours))  # Posições no eixo X
+            bar_width = 0.2  # Bar width
+            x = range(len(hours))  # Positions on the X-axis
             plt.bar([i - 0.5 * bar_width for i in x], P2G_H2, bar_width, color='orange', label='Hydrogen Bids (P2G_H2)')
             plt.xlabel('Hour ')
             plt.ylabel('Power (kW)')
@@ -494,12 +492,12 @@ def plot_results(m, output_folder="plot_result"):
             plt.xticks(hours)
             plt.grid(axis='y', linestyle='--', alpha=0.7)
 
-            # Posiciona a legenda fora do gráfico
+            # Position the legend outside the chart
             plt.legend(loc='upper left', bbox_to_anchor=(1, 1))
 
             plt.tight_layout()
 
-            # Salvar o gráfico
+            # Save the chart
             plt.savefig(os.path.join(output_folder, f"p2g_{j}_plot.png"), dpi=300, bbox_inches='tight')
             plt.close()
     for j in m.building:
@@ -519,19 +517,18 @@ def plot_results(m, output_folder="plot_result"):
             plt.tight_layout()
             plt.savefig(os.path.join(output_folder, f"P_FC_E_{j}.png"), dpi=300)
             plt.close()
+    #  EV
     for j in m.building:
         if pe.value(m.Installed_EV[j]) == 1:
             plt.figure(figsize=(10, 6))
-
-            # Valores de carga e descarga
+            # Charging and discharging values
             P_up = [pe.value(m.P_EV_E_charge[j, t]) for t in m.hours]
             P_down = [pe.value(m.P_EV_E_discharge[j, t]) for t in m.hours]
 
-            # Gráfico de barras empilhadas
             plt.bar(hours, P_up, label='Charging Power (P_EV_E_charge)', color='#1f77b4')
             plt.bar(hours, P_down, bottom=P_up, label='Discharging Power (P_EV_E_discharge)', color='#ff7f0e')
 
-            # Configurações visuais
+            # Visual settings
             plt.xlabel('Hour of the Day')
             plt.ylabel('Power (kW)')
             plt.title(f'EV Charging & Discharging - Building {j}')
@@ -540,8 +537,6 @@ def plot_results(m, output_folder="plot_result"):
             plt.legend()
             plt.grid(True)
             plt.tight_layout()
-
-            # Salvar o gráfico
             plt.savefig(os.path.join(output_folder, f"EV_{j}_power.png"), dpi=300)
             plt.close()
     # --- Plot Wind Turbine Power Generation ---
@@ -563,17 +558,18 @@ def plot_results(m, output_folder="plot_result"):
 
             plt.savefig(os.path.join(output_folder, f"wind_turbine_{j}_power.png"), dpi=300)
             plt.close()
+    # Biomass Boiler
     for j in m.building:
         if pe.value(m.Installed_BB[j]) == 1:
             hours = list(m.hours)
 
-            # Potência térmica gerada
+            # Heat power generated
             P_H = [pe.value(m.P_boiler_H[j, t]) for t in m.hours]
 
             # Eletricidade consumida
             P_E = [pe.value(m.P_boiler_E[j, t]) for t in m.hours]
 
-            # Gráfico da potência térmica
+            # Electricity consumed
             plt.figure(figsize=(10, 6))
             plt.bar(hours, P_H, color='#1f77b4', label='Thermal Power Generated (P_Boiler_H)')
             plt.xlabel('Hour of the Day')
@@ -586,7 +582,7 @@ def plot_results(m, output_folder="plot_result"):
             plt.savefig(os.path.join(output_folder, f"boiler_{j}_thermal_power.png"), dpi=300)
             plt.close()
 
-            # Gráfico da eletricidade consumida
+            # Chart of electricity consumed
             plt.figure(figsize=(10, 6))
             plt.bar(hours, P_E, color='#ff7f0e', label='Electricity Consumed (P_Boiler_E)')
             plt.xlabel('Hour of the Day')
@@ -604,7 +600,7 @@ def plot_initial_loads(m, output_folder="plot_result/initial_loads"):
     if not os.path.exists(output_folder):
         os.makedirs(output_folder)
 
-    # Limpa arquivos antigos da pasta
+    # Clear old files from the folder
     for file in os.listdir(output_folder):
         file_path = os.path.join(output_folder, file)
         if os.path.isfile(file_path):
@@ -644,7 +640,7 @@ def plot_initial_loads(m, output_folder="plot_result/initial_loads"):
             plt.savefig(os.path.join(output_folder, f"load_building_{j}.png"), dpi=300)
             plt.close()
 
-    print(f"Gráficos salvos em: {output_folder}")
+    print(f"Charts saved in: {output_folder}")
 
 def plot_secondary_reserves_separate(m, hours, output_folder):
 
@@ -655,26 +651,22 @@ def plot_secondary_reserves_separate(m, hours, output_folder):
     x = np.arange(len(hours))
 
     # --- PV ---
-    df_pv = {
-        "Upward": [sum(pe.value(m.U_PV[j, t]) for j in m.building if pe.value(m.Installed_PV[j]) == 1) for t in
-                   m.hours],
-        "Downward": [sum(pe.value(m.D_PV[j, t]) for j in m.building if pe.value(m.Installed_PV[j]) == 1) for t in
-                     m.hours]
-    }
-
-    if df_pv["Upward"]:
-        plt.figure(figsize=(12, 6))
-        plt.bar(x - bar_width / 2, df_pv["Upward"], width=bar_width, label='Upward Reserve', color='purple')
-        plt.bar(x + bar_width / 2, df_pv["Downward"], width=bar_width, label='Downward Reserve', color='orange')
-        plt.xlabel('Hour')
-        plt.ylabel('Power (kW)')
-        plt.title('PV Reserves')
-        plt.xticks(x, hours)
-        plt.legend()
-        plt.grid(axis='y', linestyle='--', alpha=0.7)
-        plt.tight_layout()
-        plt.savefig(os.path.join(output_folder, "PV_Reserves.png"))
-        plt.close()
+    for j in m.building:
+        if pe.value(m.Installed_PV[j]) == 1:
+            U_PV = [pe.value(m.U_PV[j, t]) for t in m.hours]
+            D_PV = [pe.value(m.D_PV[j, t]) for t in m.hours]
+            plt.figure(figsize=(10, 6))
+            plt.bar(x - bar_width / 2, U_PV, width=bar_width, label='Upward Reserve', color='purple')
+            plt.bar(x + bar_width / 2, D_PV, width=bar_width, label='Downward Reserve', color='orange')
+            plt.xlabel('Hour')
+            plt.ylabel('Power (kW)')
+            plt.title(f'PV Reserves - Building {j}')
+            plt.xticks(x, hours)
+            plt.legend()
+            plt.grid(axis='y', linestyle='--', alpha=0.7)
+            plt.tight_layout()
+            plt.savefig(os.path.join(output_folder, f"PV_{j}_reserves.png"))
+            plt.close()
 
     # --- HP ---
     for j in m.building:
@@ -730,6 +722,7 @@ def plot_secondary_reserves_separate(m, hours, output_folder):
             plt.savefig(os.path.join(output_folder, f"CHP_{j}_CHPE_reserves.png"), dpi=300)
             plt.close()
 
+    #ESS
     for j in m.building:
         if pe.value(m.Installed_ESS[j]) == 1:
             hours = np.array(list(m.hours))
@@ -816,17 +809,12 @@ def plot_secondary_reserves_separate(m, hours, output_folder):
         if pe.value(m.Installed_EV[j]) == 1:
             plt.figure(figsize=(12, 6))
 
-            # Dados das reservas
             U_EV = [pe.value(m.U_EV_E_up[j, t]) for t in m.hours]
             D_EV = [pe.value(m.D_EV_E_down[j, t]) for t in m.hours]
-
-            # Gráfico de barras agrupadas
             plt.bar(x - bar_width / 2, U_EV, width=bar_width, label='Upward Reserve (U_EV_E_up)',
                     color='purple')
             plt.bar(x + bar_width / 2, D_EV, width=bar_width, label='Downward Reserve (D_EV_E_down)',
                     color='orange')
-
-            # Layout e títulos
             plt.xlabel('Hour')
             plt.ylabel('Reserve Power (kW)')
             plt.title(f'EV Reserve - Building {j}')
@@ -835,7 +823,6 @@ def plot_secondary_reserves_separate(m, hours, output_folder):
             plt.grid(axis='y', linestyle='--', alpha=0.7)
             plt.tight_layout()
 
-            # Salvar gráfico
             plt.savefig(os.path.join(output_folder, f"EV_{j}_Reserve.png"), dpi=300)
             plt.close()
 
