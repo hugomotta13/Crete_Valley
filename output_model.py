@@ -67,7 +67,7 @@ def save_results_to_excel(m, output_file="final_results_crete_valley.xlsx"):
                 start_col += len(df_pv.columns) + 1  # pula uma coluna entre os blocos
 
         # Save results HP
-        pd.DataFrame().to_excel(writer, sheet_name="HP_Results_SideBySide")
+        pd.DataFrame().to_excel(writer, sheet_name="HP_Results")
 
         start_col = 0
 
@@ -85,7 +85,7 @@ def save_results_to_excel(m, output_file="final_results_crete_valley.xlsx"):
 
             df_hp.to_excel(
                 writer,
-                sheet_name="HP_Results_SideBySide",
+                sheet_name="HP_Results",
                 startrow=0,
                 startcol=start_col,
                 index=False
@@ -788,11 +788,13 @@ def plot_secondary_reserves_separate(m, hours, output_folder):
             plt.close()
 
     # --- Fuel Cell (FC) ---
+    threshold = 0.5
     for j in m.building:
         if pe.value(m.Installed_FC[j]) == 1:
             U_FC_E = [pe.value(m.U_FC_E[j, t]) for t in m.hours]
             D_FC_E = [pe.value(m.D_FC_E[j, t]) for t in m.hours]
-
+            if max(U_FC_E + D_FC_E) < threshold:
+                continue
             plt.figure(figsize=(10, 6))
             plt.bar(x - bar_width / 2, U_FC_E, width=bar_width, color='purple', label='Upward Reserve (FC_E)')
             plt.bar(x + bar_width / 2, D_FC_E, width=bar_width, color='orange', label='Downward Reserve (FC_E)')

@@ -12,8 +12,7 @@ def define_hp_constraints(m):
                             - m.Heat_Gains_Losses[j, t]
                     ) / m.Efficiency_HP[j]
                 )
-
-
+                m.c1.add(m.P_HP[j, t] <= m.P_HP_max[j])
             else:
                 m.c1.add(m.P_HP[j, t] == 0)
 
