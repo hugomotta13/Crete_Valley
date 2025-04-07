@@ -1,4 +1,4 @@
-# # Crete Valley – Energy Aggregator Optimization Model
+# # Crete Valley – Optimization Model
 
 
 ##  Project Overview
