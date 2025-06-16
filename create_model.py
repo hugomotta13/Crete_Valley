@@ -15,6 +15,7 @@ import Eletric_Vehicles_resource
 import Wind_Turbine_resource
 import Biomass_Boiler_resource
 
+
 from data_loader import (
     get_resources,
     load_resources_params,
@@ -30,6 +31,14 @@ from create_variables import (
     define_all_variables,
 )
 
+from optimal_power_flow import(
+    load_power_network_data,
+    define_power_flow_parameters,
+    export_results_to_excel,
+    generate_plots_per_node,
+    #redistribuir_edificios,
+)
+
 def create_model(data):
     # Create Pyomo model
     m = pe.ConcreteModel()
@@ -42,6 +51,20 @@ def create_model(data):
                    set(data["Gas load"].keys()) | \
                    set(data["Heat load"].keys())
     m.building = pe.Set(initialize=list(all_building))
+
+
+
+    network_data = load_power_network_data()
+    m.node = pe.Set(initialize=set(network_data["building_to_node"].values()))
+
+    # Mapping of buildings to nodes
+    mapped_building_node = {int(k): v for k, v in network_data["building_to_node"].items()}
+    m.building_node = pe.Param(m.building, initialize=mapped_building_node, within=m.node)
+
+    # Network lines (From–To pairs)
+    m.line = pe.Set(initialize=network_data["lines"], dimen=2)
+
+
     m.big_M = 1000
     # Load and process all necessary input data for the model, including resource parameters,
     # temperature data, heat gains/losses, weather forecasts, and price data
@@ -65,14 +88,16 @@ def create_model(data):
     Eletric_Vehicles_resource.define_Eletric_Vehicles_constraints(m)  # Ev
     Wind_Turbine_resource.define_wind_turbine_constraints(m)  # Wind Turbine
     Biomass_Boiler_resource.define_biomassas_boiler_constraints(m) # Biomass Boiler
-
+    define_power_flow_parameters(m, network_data)
     run_optimization_model.run_optimization(m)  # Constraints and objective function
     output_path = os.path.join(os.getcwd(), "final_results_crete_valley.xlsx")  # Create the file in xlsx
+    df_voltage, df_P_pu, df_current,df_Q_pu = export_results_to_excel(m)
     output_model.save_results_to_excel(m, output_file=output_path) # Save the results in Excel
     output_model.plot_results(m, output_folder="plot_result")  # Plot the graph for the electricity, gas,
-    # and hydrogen bids
+    generate_plots_per_node(df_voltage, df_P_pu, df_current)  # Plot voltage, current, and active power graphs
     output_model.plot_initial_loads(m) # Initial loads
     output_model.plot_secondary_reserves_separate(m, list(m.hours), output_folder="plot_result/secondary_reserves") # Graphs of the secondary reserve band
-
+    label_rede = "with network"
+    output_model.plot_aggregated_secondary_reserves(m, output_folder="graficos_reserva", label_rede=label_rede)
 
     return m

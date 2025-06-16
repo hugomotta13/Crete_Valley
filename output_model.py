@@ -642,7 +642,7 @@ def plot_initial_loads(m, output_folder="plot_result/initial_loads"):
 
     print(f"Charts saved in: {output_folder}")
 
-def plot_secondary_reserves_separate(m, hours, output_folder):
+def plot_secondary_reserves_separate(m, hours,output_folder):
 
 
     os.makedirs(output_folder, exist_ok=True)
@@ -884,3 +884,63 @@ def plot_secondary_reserves_separate(m, hours, output_folder):
             plt.tight_layout()
             plt.savefig(os.path.join(output_folder, f"boiler_{j}_reserves_F.png"), dpi=300)
             plt.close()
+
+def plot_aggregated_secondary_reserves(m, output_folder, label_rede):
+    os.makedirs(output_folder, exist_ok=True)
+
+    tecnologias = []
+    up_values = []
+    down_values = []
+
+    def soma_reserva(var):
+        return sum(pe.value(var[j, t]) for j in m.building for t in m.hours if (j, t) in var)
+
+    # Coleta dos dados
+    recursos = [
+        ("EV", "U_EV_E_up", "D_EV_E_down"),
+        ("Battery Discharge", "U_reserve_discharge", "D_reserve_discharge"),
+        ("Battery charge", "U_reserve_charge", "D_reserve_charge"),
+        ("HP", "U_HP", "D_HP"),
+        ("CHP", "U_CHPE", "D_CHPE"),
+        ("PV", "U_PV", "D_PV"),
+        ("P2G", "U_P2G_E", "D_P2G_E"),
+        ("Fuel Cell", "U_FC_E", "D_FC_E"),
+        ("Boiler", "U_boiler_E", "D_boiler_E"),
+        ("Wind", "U_wind", "D_wind"),
+    ]
+
+    for nome, up_var, down_var in recursos:
+        if hasattr(m, up_var) and hasattr(m, down_var):
+            tecnologias.append(nome)
+            up_values.append(soma_reserva(getattr(m, up_var)))
+            down_values.append(soma_reserva(getattr(m, down_var)))
+
+    # Ordenar por soma total
+    total_values = [u + d for u, d in zip(up_values, down_values)]
+    sorted_indices = np.argsort(total_values)[::-1]
+    tecnologias = [tecnologias[i] for i in sorted_indices]
+    up_values = [up_values[i] for i in sorted_indices]
+    down_values = [down_values[i] for i in sorted_indices]
+
+    # Plot
+    x = np.arange(len(tecnologias))
+    width = 0.35
+
+    plt.figure(figsize=(14, 6))
+    plt.bar(x - width/2, up_values, width=width, label='Upward Reserve', color='purple')
+    plt.bar(x + width/2, down_values, width=width, label='Downward Reserve', color='orange')
+
+    plt.xticks(x, tecnologias, rotation=45)
+    plt.ylabel("Total Reserve (kW)")
+    plt.title(f"Secondary Reserve by Technology - {label_rede}")
+    plt.grid(axis='y', linestyle='--', alpha=0.6)
+    plt.legend()
+
+    # Adiciona os valores nas barras
+    for i in range(len(x)):
+        plt.text(x[i] - width/2, up_values[i] + 10, f'{up_values[i]:.1f}', ha='center', va='bottom', fontsize=8)
+        plt.text(x[i] + width/2, down_values[i] + 10, f'{down_values[i]:.1f}', ha='center', va='bottom', fontsize=8)
+
+    plt.tight_layout()
+    plt.savefig(os.path.join(output_folder, f"Total_Reserve_{label_rede}.png"), dpi=300)
+    plt.close()
