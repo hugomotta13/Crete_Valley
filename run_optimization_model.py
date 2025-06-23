@@ -1,5 +1,8 @@
 import pyomo.environ as pe
 import logging
+import pandas as pd
+import os
+from collections import defaultdict
 from pyomo.environ import SolverFactory, value, SolverStatus, TerminationCondition
 from pyomo.util.infeasible import log_infeasible_constraints
 from optimal_power_flow import(
@@ -8,7 +11,7 @@ from optimal_power_flow import(
 
 )
 import  math
-def run_optimization(m, solver_name="cplex"):
+def run_optimization(m, include_flow=True, penalize=True, solver_name="cplex"):
     # electric energy balance equation
     for t in m.hours:
         m.c1.add(
@@ -28,7 +31,8 @@ def run_optimization(m, solver_name="cplex"):
                     +  sum(m.P_boiler_E[b, t] for b in m.building) #boiler
             )
         )
-    optimal_power_flow(m)
+    if  include_flow:  ## Apply power flow constraints only when include_flow is set to True
+      optimal_power_flow(m)
 
     # Gas Consumption
     for t in m.hours:
@@ -175,79 +179,79 @@ def run_optimization(m, solver_name="cplex"):
             + sum(m.P_boiler_H[b, t] for b in m.building)  # Heat produced by the biomass boiler
 
         )
-
-       # Minimize net cost of electricity, gas, hydrogen and secondary reserve trading
-    penalty_voltage = 1e9  # Penalidade alta para violações de tensão
-    penalty_current = 1e9 # Penalidade alta para violações de corrente
-    m.objective = pe.Objective(
-        expr=(
-                sum(m.Fe[t] + m.Fg[t] + m.F_Boiler[t] + m.F_H2O[t] + m.F_H2[t] for t in m.hours) +
-                penalty_voltage * sum(m.V_viol_lower[j, t] + m.V_viol_upper[j, t] for j in m.node for t in m.hours) +
-                penalty_current * sum(m.I_viol[i, j, t] for (i, j) in m.line for t in m.hours)
-        ),
-        sense=pe.minimize
-    )
-
-    # m.objective = pe.Objective(
-    #     expr=sum(m.Fe[t] + m.Fg[t]+m.F_Boiler[t] + m.F_H2O[t]+m.F_H2[t]
-    #              for t in m.hours),
-    #     sense=pe.minimize
-    # )
+    # If power flow constraints are active, penalize voltage and current violations in the objective
+    if penalize:
+        # Minimize net cost of electricity, gas, hydrogen and secondary reserve trading
+        penalty_voltage = 1e6  # Penalidade alta para violações de tensão
+        penalty_current = 1e6  # Penalidade alta para violações de corrente
+        m.objective = pe.Objective(
+            expr=(
+                    sum(m.Fe[t] + m.Fg[t] + m.F_Boiler[t] + m.F_H2O[t] + m.F_H2[t] for t in m.hours) / 1000 +
+                    penalty_voltage * sum(
+                m.V_viol_lower[j, t] + m.V_viol_upper[j, t] for j in m.node for t in m.hours) +
+                    penalty_current * sum(m.I_viol[i, j, t] for (i, j) in m.line for t in m.hours)
+            ),
+            sense=pe.minimize
+        )
+    # Otherwise, minimize only the net operating cost
+    else:
+        m.objective = pe.Objective(
+            expr=(sum(m.Fe[t] + m.Fg[t] + m.F_Boiler[t] + m.F_H2O[t] + m.F_H2[t]
+                      for t in m.hours) / 1000),
+            sense=pe.minimize
+        )
 
     # Call the solver to solve the optimization model
     solver = SolverFactory(solver_name)
     results = solver.solve(m, tee=True,options={"timelimit": 120})
 
-    print("\n🔍 Carga total acumulada por nó nas 24 horas (em kW):")
+    if not include_flow:
 
-    for n in m.node:
-        carga_total = 0
-        for t in m.hours:
-            carga_total += sum(
-                pe.value(
-                    m.P_ILE[b, t] +
-                    m.P_HP[b, t] -
-                    m.P_CHPE[b, t] -
-                    m.P_PV[b, t] -
-                    m.P_wind_E[b, t] +
-                    m.P_EV_E_charge[b, t] -
-                    m.P_EV_E_discharge[b, t] +
-                    m.P_charge[b, t] -
-                    m.P_discharge[b, t] +
-                    m.P2G_E[b, t] +
-                    m.P_FC_E[b, t] +
-                    m.P_boiler_E[b, t]
-                )
-                for b in m.building if m.building_node[b] == n
-            )
-        print(f"Nó {n}: {carga_total:.2f} kW")
+        buildings_by_node = defaultdict(list)
+        for b in m.building:
+            node_b = pe.value(m.building_node[b])
+            buildings_by_node[node_b].append(b)
+        data_cargas = []
 
-    for j in m.node:
-        tensoes = []
-        for t in m.hours:
-            U_sq = pe.value(m.U[j, t])
-            if U_sq is not None:
-                U_real = math.sqrt(U_sq)
-                tensoes.append(f"{U_real:.4f}")
-            else:
-                tensoes.append("nan")
-        print(f"Nó {j}: U = [{', '.join(tensoes)}]")
-    slack_node = next(iter(m.Slack))
+        for n in m.node:
+            for t in m.hours:
+                P = sum(
+                    pe.value(m.P_ILE[b, t]) +
+                    pe.value(m.P_HP[b, t]) -
+                    pe.value(m.P_CHPE[b, t]) -
+                    pe.value(m.P_PV[b, t]) -
+                    pe.value(m.P_wind_E[b, t]) +
+                    pe.value(m.P_EV_E_charge[b, t]) -
+                    pe.value(m.P_EV_E_discharge[b, t]) +
+                    pe.value(m.P_charge[b, t]) -
+                    pe.value(m.P_discharge[b, t]) +
+                    pe.value(m.P2G_E[b, t]) +
+                    pe.value(m.P_FC_E[b, t]) +
+                    pe.value(m.P_boiler_E[b, t])
+                    for b in buildings_by_node[pe.value(n)]
+                ) / pe.value(m.S_base)
 
-    total_penalidade_tensao = sum(
-        pe.value(m.V_viol_lower[j, t] + m.V_viol_upper[j, t])
-        for j in m.node if j != slack_node
-        for t in m.hours
-    )
+                Q = P * pe.value(m.tan_phi)  # relação P/Q constante
 
-    total_penalidade_corrente = sum(
-        pe.value(m.I_viol[i, j, t])
-        for (i, j) in m.line
-        for t in m.hours
-    )
+                data_cargas.append({
+                    "node": n,
+                    "hour": t,
+                    "P_pu": P,
+                    "Q_pu": Q
+                })
 
-    print(f"Soma total da penalidade por tensão: {total_penalidade_tensao:.6f}")
-    print(f"Soma total da penalidade por corrente: {total_penalidade_corrente:.6f}")
+        # Save to Excel
+
+        os.makedirs("data", exist_ok=True)
+        df = pd.DataFrame(data_cargas)
+        # Pivot the DataFrame to have hours as rows and nodes as columns
+        df_pivot = df.pivot(index="hour", columns="node", values="P_pu")
+
+        #  Sort the columns by node number
+        df_pivot = df_pivot.sort_index(axis=1)
+
+        # Save the result to Excel
+        df_pivot.to_excel("formatted_loads_per_node.xlsx", index_label="Hour")
 
     # Check solver status
     if (results.solver.status == SolverStatus.ok) and \

@@ -158,7 +158,7 @@ def optimal_power_flow(m):
 
     m.slack_voltage_hat = pe.ConstraintList()
     for t in m.hours:
-        m.slack_voltage_hat.add(m.U_hat[slack, t] == 1.0)  # Fixa U_hat no slack
+        m.slack_voltage_hat.add(m.U_hat[slack, t] == 1.0)  # Fix U_hat at the slack
 
     # 2. Active power balance
 
@@ -174,7 +174,7 @@ def optimal_power_flow(m):
     m.active_power_balance_P = pe.ConstraintList()
     for j in m.node:
         if j == slack:
-            continue  # Slack já tratado
+            continue  # No slack already enforced
 
         for t in m.hours:
             incoming_P = sum(m.P_line[i, j, t] for (i, jj) in m.line if jj == j)
@@ -357,29 +357,87 @@ def export_results_to_excel(m, output_path="power_flow_results.xlsx"):
     df_Q_pu = pd.DataFrame(Q_pu_data)
     df_Q_pu.insert(0, "Hour", list(m.hours))
     # Totals
-    total_P_gen_kW = sum(pe.value(m.P_pu[n, t]) for n in m.node for t in m.hours) * m.S_base
-    total_Q_gen_kVAr = sum(pe.value(m.Q_slack[t]) for t in m.hours) * m.S_base
-    total_Q_demand_kVAr = total_P_gen_kW * math.tan(math.acos(0.95))
+    total_gen_kW = sum(
+        pe.value(m.P_PV[b, t]) +
+        pe.value(m.P_CHPE[b, t]) +
+        pe.value(m.P_wind_E[b, t]) +
+        pe.value(m.P_EV_E_discharge[b, t]) +
+        pe.value(m.P_discharge[b, t])
+        for b in m.building for t in m.hours
+    )
 
-    # Perdas
+    # Total active power consumption (in kW)
+    total_load_kW = sum(
+        pe.value(m.P_ILE[b, t]) +
+        pe.value(m.P_HP[b, t]) +
+        pe.value(m.P_EV_E_charge[b, t]) +
+        pe.value(m.P_charge[b, t]) +
+        pe.value(m.P2G_E[b, t]) +
+        pe.value(m.P_FC_E[b, t]) +
+        pe.value(m.P_boiler_E[b, t])
+        for b in m.building for t in m.hours
+    )
+
+    # Net active power injected into the grid
+    net_P_injected_kW = total_load_kW - total_gen_kW
+
+    # Active power losses (I²R)
     total_losses_kW = sum(
         pe.value(m.I_sq[i, j, t]) * pe.value(m.R_pu[i, j]) * m.S_base
         for (i, j) in m.line for t in m.hours
     )
-    total_losses_Q_kVAr = total_Q_gen_kVAr - total_Q_demand_kVAr
 
+    # Reactive power (from slack bus)
+    total_Q_gen_kVAr = sum(pe.value(m.Q_slack[t]) for t in m.hours) * m.S_base
+    total_Q_demand_kVAr = total_load_kW * math.tan(math.acos(0.95))  # PF = 0.95
+    total_Q_losses_kVAr = total_Q_gen_kVAr - total_Q_demand_kVAr
+
+    # Create summary DataFrame
     df_summary = pd.DataFrame([
-        ["Net sum of active power (generation - consumption)", total_P_gen_kW, "kW"],
+        ["Total active power generation", total_gen_kW, "kW"],
+        ["Total active power consumption", total_load_kW, "kW"],
+        ["Net active power injected (load - gen)", net_P_injected_kW, "kW"],
         ["Active losses (I²R)", total_losses_kW, "kW"],
         ["Total reactive power generated (slack)", total_Q_gen_kVAr, "kVAr"],
         ["Estimated reactive power demand (PF=0.95)", total_Q_demand_kVAr, "kVAr"],
-        ["Estimated reactive losses", total_losses_Q_kVAr, "kVAr"]
+        ["Estimated reactive losses", total_Q_losses_kVAr, "kVAr"]
     ], columns=["Description", "Value", "Unit"])
 
-    # Exportar
+    #  Export
     with pd.ExcelWriter(output_path) as writer:
         df_summary.to_excel(writer, sheet_name="Summary", index=False)
+        # Save voltage matrix
         df_voltage.to_excel(writer, sheet_name="Voltages in pu (per unit)", index=False)
+
+        # Find violations and append below the table
+        violation_limit = 0.92
+        violations = [("Hour", "Node", "Voltage (pu)")]
+
+        for t in m.hours:
+            for n in m.node:
+                U_sq = pe.value(m.U[n, t])
+                if U_sq is not None and U_sq >= 0:
+                    U_pu = math.sqrt(U_sq)
+                    if U_pu < violation_limit:
+                        violations.append((t, n, round(U_pu, 6)))
+
+        # Write violations below the voltage matrix
+        start_row = len(df_voltage) + 3  # leave 2 blank rows after the voltage table
+
+        # Write header and each violation row
+        for row_idx, row_data in enumerate(violations):
+            for col_idx, value in enumerate(row_data):
+                writer.sheets["Voltages in pu (per unit)"].cell(
+                    row=start_row + row_idx + 1, column=col_idx + 1, value=value
+                )
+
+        # Add total count line
+        total_violations = len(violations) - 1  # exclude header
+        writer.sheets["Voltages in pu (per unit)"].cell(
+            row=start_row + len(violations) + 2, column=1,
+            value=f"Total number of voltage violations below {violation_limit} pu: {total_violations}"
+        )
+
         df_current.to_excel(writer, sheet_name="Currents in pu (per unit)", index=False)
         df_P.to_excel(writer, sheet_name="Active power on the lines", index=False)
         df_Q.to_excel(writer, sheet_name="Reactive power on the lines", index=False)

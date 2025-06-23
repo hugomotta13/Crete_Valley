@@ -887,7 +887,11 @@ def plot_secondary_reserves_separate(m, hours,output_folder):
 
 def plot_aggregated_secondary_reserves(m, output_folder, label_rede):
     os.makedirs(output_folder, exist_ok=True)
-
+    # Clear old files from the folder
+    for file in os.listdir(output_folder):
+        file_path = os.path.join(output_folder, file)
+        if os.path.isfile(file_path):
+            os.remove(file_path)
     tecnologias = []
     up_values = []
     down_values = []

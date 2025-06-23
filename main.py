@@ -7,7 +7,7 @@ def main():
     data = get_resources()  # Reading the data from Excel
 
     # Create the optimization model and call all necessary functions to define variables, constraints, and the objective function
-    m = create_model(data)
+    m = create_model(data,include_flow=True, penalize=True)
 
     end_time = time.time() # End of execution timer
     execution_time = end_time - start_time
