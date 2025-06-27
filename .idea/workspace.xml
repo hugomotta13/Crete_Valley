@@ -5,171 +5,201 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3439d61f-49a7-4a85-ab12-d91adebfbadd" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/33 barras IEEE.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plots per node/1-_2_current.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plots per node/10-_11_current.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plots per node/11-_12_current.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plots per node/12-_13_current.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plots per node/13-_14_current.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plots per node/14-_15_current.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plots per node/15-_16_current.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plots per node/16-_17_current.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plots per node/17-_18_current.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plots per node/19-_20_current.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plots per node/2-_19_current.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plots per node/2-_3_current.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plots per node/20-_21_current.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plots per node/21-_22_current.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plots per node/23-_24_current.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plots per node/24-_25_current.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plots per node/26-_27_current.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plots per node/27-_28_current.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plots per node/28-_29_current.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plots per node/29-_30_current.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plots per node/3-_23_current.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plots per node/3-_4_current.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plots per node/30-_31_current.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plots per node/31-_32_current.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plots per node/32-_33_current.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plots per node/4-_5_current.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plots per node/5-_6_current.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plots per node/6-_26_current.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plots per node/6-_7_current.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plots per node/7-_8_current.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plots per node/8-_9_current.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plots per node/9-_10_current.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plots per node/Node 10_Power.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plots per node/Node 10_voltage.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plots per node/Node 11_Power.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plots per node/Node 11_voltage.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plots per node/Node 12_Power.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plots per node/Node 12_voltage.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plots per node/Node 13_Power.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plots per node/Node 13_voltage.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plots per node/Node 14_Power.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plots per node/Node 14_voltage.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plots per node/Node 15_Power.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plots per node/Node 15_voltage.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plots per node/Node 16_Power.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plots per node/Node 16_voltage.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plots per node/Node 17_Power.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plots per node/Node 17_voltage.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plots per node/Node 18_Power.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plots per node/Node 18_voltage.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plots per node/Node 19_Power.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plots per node/Node 19_voltage.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plots per node/Node 1_Power.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plots per node/Node 1_voltage.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plots per node/Node 20_Power.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plots per node/Node 20_voltage.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plots per node/Node 21_Power.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plots per node/Node 21_voltage.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plots per node/Node 22_Power.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plots per node/Node 22_voltage.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plots per node/Node 23_Power.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plots per node/Node 23_voltage.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plots per node/Node 24_Power.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plots per node/Node 24_voltage.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plots per node/Node 25_Power.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plots per node/Node 25_voltage.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plots per node/Node 26_Power.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plots per node/Node 26_voltage.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plots per node/Node 27_Power.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plots per node/Node 27_voltage.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plots per node/Node 28_Power.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plots per node/Node 28_voltage.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plots per node/Node 29_Power.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plots per node/Node 29_voltage.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plots per node/Node 2_Power.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plots per node/Node 2_voltage.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plots per node/Node 30_Power.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plots per node/Node 30_voltage.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plots per node/Node 31_Power.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plots per node/Node 31_voltage.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plots per node/Node 32_Power.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plots per node/Node 32_voltage.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plots per node/Node 33_Power.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plots per node/Node 33_voltage.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plots per node/Node 3_Power.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plots per node/Node 3_voltage.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plots per node/Node 4_Power.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plots per node/Node 4_voltage.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plots per node/Node 5_Power.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plots per node/Node 5_voltage.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plots per node/Node 6_Power.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plots per node/Node 6_voltage.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plots per node/Node 7_Power.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plots per node/Node 7_voltage.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plots per node/Node 8_Power.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plots per node/Node 8_voltage.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plots per node/Node 9_Power.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plots per node/Node 9_voltage.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plots per node/Summary_Minimum_Voltage_by_Node.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/System_data23.xlsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/System_data33.xlsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/optimal_power_flow.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/plot_result/EV_10_power.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/plot_result/EV_11_power.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/plot_result/EV_17_power.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/plot_result/EV_18_power.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/plot_result/P_CHPE_12.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/plot_result/P_CHPE_32.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/plot_result/P_CHPE_39.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/plot_result/P_CHPG_12.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/plot_result/P_CHPG_32.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/plot_result/P_CHPG_39.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/plot_result/P_FC_E_13.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/plot_result/P_PV_10.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/plot_result/P_PV_17.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/plot_result/P_PV_30.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/plot_result/P_PV_39.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/plot_result/P_PV_9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/plot_result/initial_loads/load_building_10.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/plot_result/initial_loads/load_building_21.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/CHP_12_CHPE_reserves.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/CHP_12_CHPG_reserves.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/CHP_32_CHPE_reserves.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/CHP_32_CHPG_reserves.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/CHP_39_CHPE_reserves.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/CHP_39_CHPG_reserves.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/EV_10_Reserve.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/EV_11_Reserve.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/EV_17_Reserve.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/EV_18_Reserve.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/PV_10_reserves.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/PV_17_reserves.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/PV_30_reserves.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/PV_39_reserves.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/PV_9_reserves.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/wind_turbine_12_reserves.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/wind_turbine_16_reserves.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/wind_turbine_17_reserves.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/wind_turbine_21_reserves.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/wind_turbine_34_reserves.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/plot_result/wind_turbine_12_power.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/plot_result/wind_turbine_16_power.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/plot_result/wind_turbine_17_power.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/plot_result/wind_turbine_21_power.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/plot_result/wind_turbine_34_power.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/power_flow_results.xlsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plot_result/initial_loads/load_building_17.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plot_result/initial_loads/load_building_34.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plot_result/initial_loads/load_building_38.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Input Data - Resources 1.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/Input Data - Resources 1.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/create_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/create_model.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_loader.py" beforeDir="false" afterPath="$PROJECT_DIR$/data_loader.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plots per node/1-_2_current.png" beforeDir="false" afterPath="$PROJECT_DIR$/Plots per node/1-_2_current.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plots per node/10-_11_current.png" beforeDir="false" afterPath="$PROJECT_DIR$/Plots per node/10-_11_current.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plots per node/11-_12_current.png" beforeDir="false" afterPath="$PROJECT_DIR$/Plots per node/11-_12_current.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plots per node/12-_13_current.png" beforeDir="false" afterPath="$PROJECT_DIR$/Plots per node/12-_13_current.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plots per node/13-_14_current.png" beforeDir="false" afterPath="$PROJECT_DIR$/Plots per node/13-_14_current.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plots per node/14-_15_current.png" beforeDir="false" afterPath="$PROJECT_DIR$/Plots per node/14-_15_current.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plots per node/15-_16_current.png" beforeDir="false" afterPath="$PROJECT_DIR$/Plots per node/15-_16_current.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plots per node/16-_17_current.png" beforeDir="false" afterPath="$PROJECT_DIR$/Plots per node/16-_17_current.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plots per node/17-_18_current.png" beforeDir="false" afterPath="$PROJECT_DIR$/Plots per node/17-_18_current.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plots per node/19-_20_current.png" beforeDir="false" afterPath="$PROJECT_DIR$/Plots per node/19-_20_current.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plots per node/2-_19_current.png" beforeDir="false" afterPath="$PROJECT_DIR$/Plots per node/2-_19_current.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plots per node/2-_3_current.png" beforeDir="false" afterPath="$PROJECT_DIR$/Plots per node/2-_3_current.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plots per node/20-_21_current.png" beforeDir="false" afterPath="$PROJECT_DIR$/Plots per node/20-_21_current.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plots per node/21-_22_current.png" beforeDir="false" afterPath="$PROJECT_DIR$/Plots per node/21-_22_current.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plots per node/23-_24_current.png" beforeDir="false" afterPath="$PROJECT_DIR$/Plots per node/23-_24_current.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plots per node/24-_25_current.png" beforeDir="false" afterPath="$PROJECT_DIR$/Plots per node/24-_25_current.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plots per node/26-_27_current.png" beforeDir="false" afterPath="$PROJECT_DIR$/Plots per node/26-_27_current.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plots per node/27-_28_current.png" beforeDir="false" afterPath="$PROJECT_DIR$/Plots per node/27-_28_current.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plots per node/28-_29_current.png" beforeDir="false" afterPath="$PROJECT_DIR$/Plots per node/28-_29_current.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plots per node/29-_30_current.png" beforeDir="false" afterPath="$PROJECT_DIR$/Plots per node/29-_30_current.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plots per node/3-_23_current.png" beforeDir="false" afterPath="$PROJECT_DIR$/Plots per node/3-_23_current.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plots per node/3-_4_current.png" beforeDir="false" afterPath="$PROJECT_DIR$/Plots per node/3-_4_current.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plots per node/30-_31_current.png" beforeDir="false" afterPath="$PROJECT_DIR$/Plots per node/30-_31_current.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plots per node/31-_32_current.png" beforeDir="false" afterPath="$PROJECT_DIR$/Plots per node/31-_32_current.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plots per node/32-_33_current.png" beforeDir="false" afterPath="$PROJECT_DIR$/Plots per node/32-_33_current.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plots per node/4-_5_current.png" beforeDir="false" afterPath="$PROJECT_DIR$/Plots per node/4-_5_current.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plots per node/5-_6_current.png" beforeDir="false" afterPath="$PROJECT_DIR$/Plots per node/5-_6_current.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plots per node/6-_26_current.png" beforeDir="false" afterPath="$PROJECT_DIR$/Plots per node/6-_26_current.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plots per node/6-_7_current.png" beforeDir="false" afterPath="$PROJECT_DIR$/Plots per node/6-_7_current.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plots per node/7-_8_current.png" beforeDir="false" afterPath="$PROJECT_DIR$/Plots per node/7-_8_current.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plots per node/8-_9_current.png" beforeDir="false" afterPath="$PROJECT_DIR$/Plots per node/8-_9_current.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plots per node/9-_10_current.png" beforeDir="false" afterPath="$PROJECT_DIR$/Plots per node/9-_10_current.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plots per node/Node 10_Power.png" beforeDir="false" afterPath="$PROJECT_DIR$/Plots per node/Node 10_Power.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plots per node/Node 10_voltage.png" beforeDir="false" afterPath="$PROJECT_DIR$/Plots per node/Node 10_voltage.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plots per node/Node 11_Power.png" beforeDir="false" afterPath="$PROJECT_DIR$/Plots per node/Node 11_Power.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plots per node/Node 11_voltage.png" beforeDir="false" afterPath="$PROJECT_DIR$/Plots per node/Node 11_voltage.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plots per node/Node 12_Power.png" beforeDir="false" afterPath="$PROJECT_DIR$/Plots per node/Node 12_Power.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plots per node/Node 12_voltage.png" beforeDir="false" afterPath="$PROJECT_DIR$/Plots per node/Node 12_voltage.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plots per node/Node 13_Power.png" beforeDir="false" afterPath="$PROJECT_DIR$/Plots per node/Node 13_Power.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plots per node/Node 13_voltage.png" beforeDir="false" afterPath="$PROJECT_DIR$/Plots per node/Node 13_voltage.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plots per node/Node 14_Power.png" beforeDir="false" afterPath="$PROJECT_DIR$/Plots per node/Node 14_Power.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plots per node/Node 14_voltage.png" beforeDir="false" afterPath="$PROJECT_DIR$/Plots per node/Node 14_voltage.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plots per node/Node 15_Power.png" beforeDir="false" afterPath="$PROJECT_DIR$/Plots per node/Node 15_Power.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plots per node/Node 15_voltage.png" beforeDir="false" afterPath="$PROJECT_DIR$/Plots per node/Node 15_voltage.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plots per node/Node 16_Power.png" beforeDir="false" afterPath="$PROJECT_DIR$/Plots per node/Node 16_Power.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plots per node/Node 16_voltage.png" beforeDir="false" afterPath="$PROJECT_DIR$/Plots per node/Node 16_voltage.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plots per node/Node 17_Power.png" beforeDir="false" afterPath="$PROJECT_DIR$/Plots per node/Node 17_Power.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plots per node/Node 17_voltage.png" beforeDir="false" afterPath="$PROJECT_DIR$/Plots per node/Node 17_voltage.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plots per node/Node 18_Power.png" beforeDir="false" afterPath="$PROJECT_DIR$/Plots per node/Node 18_Power.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plots per node/Node 18_voltage.png" beforeDir="false" afterPath="$PROJECT_DIR$/Plots per node/Node 18_voltage.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plots per node/Node 19_Power.png" beforeDir="false" afterPath="$PROJECT_DIR$/Plots per node/Node 19_Power.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plots per node/Node 19_voltage.png" beforeDir="false" afterPath="$PROJECT_DIR$/Plots per node/Node 19_voltage.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plots per node/Node 1_Power.png" beforeDir="false" afterPath="$PROJECT_DIR$/Plots per node/Node 1_Power.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plots per node/Node 20_Power.png" beforeDir="false" afterPath="$PROJECT_DIR$/Plots per node/Node 20_Power.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plots per node/Node 20_voltage.png" beforeDir="false" afterPath="$PROJECT_DIR$/Plots per node/Node 20_voltage.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plots per node/Node 21_Power.png" beforeDir="false" afterPath="$PROJECT_DIR$/Plots per node/Node 21_Power.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plots per node/Node 21_voltage.png" beforeDir="false" afterPath="$PROJECT_DIR$/Plots per node/Node 21_voltage.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plots per node/Node 22_Power.png" beforeDir="false" afterPath="$PROJECT_DIR$/Plots per node/Node 22_Power.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plots per node/Node 22_voltage.png" beforeDir="false" afterPath="$PROJECT_DIR$/Plots per node/Node 22_voltage.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plots per node/Node 23_Power.png" beforeDir="false" afterPath="$PROJECT_DIR$/Plots per node/Node 23_Power.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plots per node/Node 23_voltage.png" beforeDir="false" afterPath="$PROJECT_DIR$/Plots per node/Node 23_voltage.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plots per node/Node 24_Power.png" beforeDir="false" afterPath="$PROJECT_DIR$/Plots per node/Node 24_Power.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plots per node/Node 24_voltage.png" beforeDir="false" afterPath="$PROJECT_DIR$/Plots per node/Node 24_voltage.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plots per node/Node 25_Power.png" beforeDir="false" afterPath="$PROJECT_DIR$/Plots per node/Node 25_Power.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plots per node/Node 25_voltage.png" beforeDir="false" afterPath="$PROJECT_DIR$/Plots per node/Node 25_voltage.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plots per node/Node 26_Power.png" beforeDir="false" afterPath="$PROJECT_DIR$/Plots per node/Node 26_Power.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plots per node/Node 26_voltage.png" beforeDir="false" afterPath="$PROJECT_DIR$/Plots per node/Node 26_voltage.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plots per node/Node 27_Power.png" beforeDir="false" afterPath="$PROJECT_DIR$/Plots per node/Node 27_Power.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plots per node/Node 27_voltage.png" beforeDir="false" afterPath="$PROJECT_DIR$/Plots per node/Node 27_voltage.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plots per node/Node 28_Power.png" beforeDir="false" afterPath="$PROJECT_DIR$/Plots per node/Node 28_Power.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plots per node/Node 28_voltage.png" beforeDir="false" afterPath="$PROJECT_DIR$/Plots per node/Node 28_voltage.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plots per node/Node 29_Power.png" beforeDir="false" afterPath="$PROJECT_DIR$/Plots per node/Node 29_Power.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plots per node/Node 29_voltage.png" beforeDir="false" afterPath="$PROJECT_DIR$/Plots per node/Node 29_voltage.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plots per node/Node 2_Power.png" beforeDir="false" afterPath="$PROJECT_DIR$/Plots per node/Node 2_Power.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plots per node/Node 2_voltage.png" beforeDir="false" afterPath="$PROJECT_DIR$/Plots per node/Node 2_voltage.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plots per node/Node 30_Power.png" beforeDir="false" afterPath="$PROJECT_DIR$/Plots per node/Node 30_Power.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plots per node/Node 30_voltage.png" beforeDir="false" afterPath="$PROJECT_DIR$/Plots per node/Node 30_voltage.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plots per node/Node 31_Power.png" beforeDir="false" afterPath="$PROJECT_DIR$/Plots per node/Node 31_Power.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plots per node/Node 31_voltage.png" beforeDir="false" afterPath="$PROJECT_DIR$/Plots per node/Node 31_voltage.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plots per node/Node 32_Power.png" beforeDir="false" afterPath="$PROJECT_DIR$/Plots per node/Node 32_Power.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plots per node/Node 32_voltage.png" beforeDir="false" afterPath="$PROJECT_DIR$/Plots per node/Node 32_voltage.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plots per node/Node 33_Power.png" beforeDir="false" afterPath="$PROJECT_DIR$/Plots per node/Node 33_Power.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plots per node/Node 33_voltage.png" beforeDir="false" afterPath="$PROJECT_DIR$/Plots per node/Node 33_voltage.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plots per node/Node 3_Power.png" beforeDir="false" afterPath="$PROJECT_DIR$/Plots per node/Node 3_Power.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plots per node/Node 3_voltage.png" beforeDir="false" afterPath="$PROJECT_DIR$/Plots per node/Node 3_voltage.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plots per node/Node 4_Power.png" beforeDir="false" afterPath="$PROJECT_DIR$/Plots per node/Node 4_Power.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plots per node/Node 4_voltage.png" beforeDir="false" afterPath="$PROJECT_DIR$/Plots per node/Node 4_voltage.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plots per node/Node 5_Power.png" beforeDir="false" afterPath="$PROJECT_DIR$/Plots per node/Node 5_Power.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plots per node/Node 5_voltage.png" beforeDir="false" afterPath="$PROJECT_DIR$/Plots per node/Node 5_voltage.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plots per node/Node 6_Power.png" beforeDir="false" afterPath="$PROJECT_DIR$/Plots per node/Node 6_Power.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plots per node/Node 6_voltage.png" beforeDir="false" afterPath="$PROJECT_DIR$/Plots per node/Node 6_voltage.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plots per node/Node 7_Power.png" beforeDir="false" afterPath="$PROJECT_DIR$/Plots per node/Node 7_Power.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plots per node/Node 7_voltage.png" beforeDir="false" afterPath="$PROJECT_DIR$/Plots per node/Node 7_voltage.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plots per node/Node 8_Power.png" beforeDir="false" afterPath="$PROJECT_DIR$/Plots per node/Node 8_Power.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plots per node/Node 8_voltage.png" beforeDir="false" afterPath="$PROJECT_DIR$/Plots per node/Node 8_voltage.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plots per node/Node 9_Power.png" beforeDir="false" afterPath="$PROJECT_DIR$/Plots per node/Node 9_Power.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plots per node/Node 9_voltage.png" beforeDir="false" afterPath="$PROJECT_DIR$/Plots per node/Node 9_voltage.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plots per node/Summary_Minimum_Voltage_by_Node.png" beforeDir="false" afterPath="$PROJECT_DIR$/Plots per node/Summary_Minimum_Voltage_by_Node.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/final_results_crete_valley.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/final_results_crete_valley.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/optimal_power_flow.py" beforeDir="false" afterPath="$PROJECT_DIR$/optimal_power_flow.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/EV_10_power.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/EV_10_power.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/EV_11_power.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/EV_11_power.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/EV_13_power.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/EV_13_power.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/EV_17_power.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/EV_17_power.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/EV_18_power.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/EV_18_power.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/plot_result/EV_1_power.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/EV_1_power.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plot_result/EV_22_power.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/plot_result/EV_31_power.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/EV_25_power.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/EV_25_power.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/EV_29_power.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/EV_29_power.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/EV_34_power.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/EV_34_power.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/EV_39_power.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/EV_39_power.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/EV_8_power.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/EV_8_power.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/plot_result/P2G_E_building_1.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/P2G_E_building_1.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/plot_result/P2G_E_building_6.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/P2G_E_building_6.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plot_result/P_CHPE_19.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/P_CHPE_19.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plot_result/P_CHPG_19.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/P_CHPG_19.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/P_CHPE_12.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/P_CHPE_19.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/P_CHPE_32.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/P_CHPG_12.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/P_CHPG_19.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/P_CHPG_32.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/P_HP_1.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/P_HP_1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/P_HP_10.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/P_HP_10.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/P_HP_11.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/P_HP_11.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/P_HP_12.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/P_HP_12.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/P_HP_13.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/P_HP_13.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/P_HP_14.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/P_HP_14.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/P_HP_15.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/P_HP_15.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/P_HP_16.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/P_HP_16.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/P_HP_17.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/P_HP_17.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/P_HP_18.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/P_HP_18.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/P_HP_19.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/P_HP_19.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/P_HP_2.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/P_HP_2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/P_HP_20.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/P_HP_20.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/P_HP_21.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/P_HP_21.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/P_HP_22.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/P_HP_22.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/P_HP_23.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/P_HP_23.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/P_HP_24.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/P_HP_24.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/P_HP_25.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/P_HP_25.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/P_HP_26.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/P_HP_26.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/P_HP_27.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/P_HP_27.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/P_HP_28.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/P_HP_28.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/P_HP_29.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/P_HP_29.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/P_HP_3.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/P_HP_3.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/P_HP_30.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/P_HP_30.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/plot_result/P_HP_31.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/P_HP_31.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plot_result/P_PV_2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/plot_result/P_PV_24.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/P_PV_24.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plot_result/P_PV_31.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/plot_result/P_PV_33.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/P_HP_32.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/P_HP_32.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/P_HP_33.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/P_HP_33.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/P_HP_34.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/P_HP_34.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/P_HP_35.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/P_HP_35.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/P_HP_36.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/P_HP_36.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/P_HP_37.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/P_HP_37.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/P_HP_38.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/P_HP_38.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/P_HP_39.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/P_HP_39.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/P_HP_4.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/P_HP_4.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/P_HP_5.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/P_HP_5.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/P_HP_6.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/P_HP_6.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/P_HP_7.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/P_HP_7.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/P_HP_8.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/P_HP_8.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/P_HP_9.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/P_HP_9.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/P_PV_1.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/P_PV_1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/P_PV_10.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/P_PV_11.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/P_PV_12.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/P_PV_14.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/P_PV_14.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/P_PV_16.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/P_PV_17.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/P_PV_19.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/P_PV_19.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/P_PV_21.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/P_PV_24.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/P_PV_30.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/P_PV_30.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/P_PV_34.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/P_PV_34.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/plot_result/P_PV_38.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/P_PV_38.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/P_PV_39.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/P_PV_39.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/P_PV_4.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/P_PV_4.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/P_PV_8.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/P_PV_8.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/P_PV_9.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/battery_10_charge_discharge.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/battery_10_charge_discharge.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/battery_19_charge_discharge.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/battery_19_charge_discharge.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/battery_35_charge_discharge.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/battery_35_charge_discharge.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/boiler_15_electricity_consumption.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/boiler_15_thermal_power.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/boiler_1_electricity_consumption.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/boiler_1_electricity_consumption.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/boiler_1_thermal_power.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/boiler_1_thermal_power.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/boiler_21_electricity_consumption.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/boiler_21_thermal_power.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/boiler_30_electricity_consumption.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/boiler_30_thermal_power.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/boiler_3_electricity_consumption.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/boiler_3_electricity_consumption.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/boiler_3_thermal_power.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/boiler_3_thermal_power.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/boiler_9_electricity_consumption.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/boiler_9_electricity_consumption.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/boiler_9_thermal_power.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/boiler_9_thermal_power.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/plot_result/building_10_temperatures.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/building_10_temperatures.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/plot_result/building_11_temperatures.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/building_11_temperatures.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/plot_result/building_12_temperatures.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/building_12_temperatures.png" afterDir="false" />
@@ -211,17 +241,19 @@
       <change beforePath="$PROJECT_DIR$/plot_result/building_9_temperatures.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/building_9_temperatures.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/plot_result/electric_energy_balance.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/electric_energy_balance.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/plot_result/initial_loads/load_building_16.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/initial_loads/load_building_16.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plot_result/initial_loads/load_building_3.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/initial_loads/load_building_3.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plot_result/initial_loads/load_building_31.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/initial_loads/load_building_31.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plot_result/initial_loads/load_building_34.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/plot_result/natural_gas_consumption.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/natural_gas_consumption.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/plot_result/p2g_1_plot.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/p2g_1_plot.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/plot_result/p2g_6_plot.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/p2g_6_plot.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plot_result/secondary_reserves/CHP_19_CHPE_reserves.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/CHP_19_CHPE_reserves.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plot_result/secondary_reserves/CHP_19_CHPG_reserves.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/CHP_19_CHPG_reserves.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/secondary_reserves/CHP_1_CHPE_reserves.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/CHP_1_CHPE_reserves.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/secondary_reserves/CHP_1_CHPG_reserves.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/CHP_1_CHPG_reserves.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/secondary_reserves/CHP_39_CHPE_reserves.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/CHP_39_CHPE_reserves.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/secondary_reserves/CHP_39_CHPG_reserves.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/CHP_39_CHPG_reserves.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/secondary_reserves/EV_10_Reserve.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/EV_10_Reserve.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/secondary_reserves/EV_11_Reserve.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/EV_11_Reserve.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/plot_result/secondary_reserves/EV_13_Reserve.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/EV_13_Reserve.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/secondary_reserves/EV_17_Reserve.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/EV_17_Reserve.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/secondary_reserves/EV_18_Reserve.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/EV_18_Reserve.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/plot_result/secondary_reserves/EV_1_Reserve.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/EV_1_Reserve.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plot_result/secondary_reserves/EV_22_Reserve.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/EV_22_Reserve.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/plot_result/secondary_reserves/EV_25_Reserve.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/EV_25_Reserve.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/plot_result/secondary_reserves/EV_29_Reserve.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/EV_29_Reserve.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/plot_result/secondary_reserves/EV_34_Reserve.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/EV_34_Reserve.png" afterDir="false" />
@@ -269,18 +301,13 @@
       <change beforePath="$PROJECT_DIR$/plot_result/secondary_reserves/HP_9_reserves.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/HP_9_reserves.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/plot_result/secondary_reserves/P2G_1_reserves.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/P2G_1_reserves.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/plot_result/secondary_reserves/P2G_6_reserves.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/P2G_6_reserves.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plot_result/secondary_reserves/PV_11_reserves.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/PV_11_reserves.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plot_result/secondary_reserves/PV_12_reserves.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/PV_12_reserves.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/plot_result/secondary_reserves/PV_14_reserves.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/PV_14_reserves.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plot_result/secondary_reserves/PV_16_reserves.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/PV_16_reserves.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/plot_result/secondary_reserves/PV_19_reserves.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/PV_19_reserves.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/plot_result/secondary_reserves/PV_1_reserves.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/PV_1_reserves.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plot_result/secondary_reserves/PV_21_reserves.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/PV_21_reserves.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plot_result/secondary_reserves/PV_24_reserves.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/PV_24_reserves.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plot_result/secondary_reserves/PV_2_reserves.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/PV_2_reserves.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plot_result/secondary_reserves/PV_33_reserves.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/PV_33_reserves.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/secondary_reserves/PV_30_reserves.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/PV_30_reserves.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/plot_result/secondary_reserves/PV_34_reserves.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/PV_34_reserves.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/plot_result/secondary_reserves/PV_38_reserves.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/PV_38_reserves.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/secondary_reserves/PV_39_reserves.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/PV_39_reserves.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/plot_result/secondary_reserves/PV_4_reserves.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/PV_4_reserves.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/plot_result/secondary_reserves/PV_8_reserves.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/PV_8_reserves.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/plot_result/secondary_reserves/battery_10_charge_reserve.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/battery_10_charge_reserve.png" afterDir="false" />
@@ -289,29 +316,33 @@
       <change beforePath="$PROJECT_DIR$/plot_result/secondary_reserves/battery_19_discharge_reserve.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/battery_19_discharge_reserve.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/plot_result/secondary_reserves/battery_35_charge_reserve.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/battery_35_charge_reserve.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/plot_result/secondary_reserves/battery_35_discharge_reserve.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/battery_35_discharge_reserve.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plot_result/secondary_reserves/boiler_15_reserves_E.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/boiler_15_reserves_E.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plot_result/secondary_reserves/boiler_15_reserves_F.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/boiler_15_reserves_F.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/plot_result/secondary_reserves/boiler_1_reserves_E.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/boiler_1_reserves_E.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/plot_result/secondary_reserves/boiler_1_reserves_F.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/boiler_1_reserves_F.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plot_result/secondary_reserves/boiler_21_reserves_E.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/boiler_21_reserves_E.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plot_result/secondary_reserves/boiler_21_reserves_F.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/boiler_21_reserves_F.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/plot_result/secondary_reserves/boiler_27_reserves_E.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/boiler_27_reserves_E.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/plot_result/secondary_reserves/boiler_27_reserves_F.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/boiler_27_reserves_F.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plot_result/secondary_reserves/boiler_30_reserves_E.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/boiler_30_reserves_E.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plot_result/secondary_reserves/boiler_30_reserves_F.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/boiler_30_reserves_F.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/plot_result/secondary_reserves/boiler_38_reserves_E.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/boiler_38_reserves_E.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/plot_result/secondary_reserves/boiler_38_reserves_F.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/boiler_38_reserves_F.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/plot_result/secondary_reserves/boiler_3_reserves_E.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/boiler_3_reserves_E.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/plot_result/secondary_reserves/boiler_3_reserves_F.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/boiler_3_reserves_F.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/plot_result/secondary_reserves/boiler_9_reserves_E.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/boiler_9_reserves_E.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/plot_result/secondary_reserves/boiler_9_reserves_F.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/boiler_9_reserves_F.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plot_result/secondary_reserves/wind_turbine_18_reserves.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/wind_turbine_18_reserves.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/secondary_reserves/wind_turbine_12_reserves.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/wind_turbine_12_reserves.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/secondary_reserves/wind_turbine_16_reserves.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/wind_turbine_16_reserves.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/secondary_reserves/wind_turbine_17_reserves.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/wind_turbine_17_reserves.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/secondary_reserves/wind_turbine_21_reserves.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/wind_turbine_21_reserves.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/secondary_reserves/wind_turbine_34_reserves.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/wind_turbine_34_reserves.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/plot_result/secondary_reserves/wind_turbine_39_reserves.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/wind_turbine_39_reserves.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/plot_result/secondary_reserves/wind_turbine_4_reserves.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/secondary_reserves/wind_turbine_4_reserves.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plot_result/wind_turbine_18_power.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/wind_turbine_12_power.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/wind_turbine_12_power.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/wind_turbine_16_power.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/wind_turbine_16_power.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/wind_turbine_17_power.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/wind_turbine_17_power.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/wind_turbine_21_power.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/wind_turbine_21_power.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_result/wind_turbine_34_power.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/wind_turbine_34_power.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/plot_result/wind_turbine_39_power.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/wind_turbine_39_power.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/plot_result/wind_turbine_4_power.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_result/wind_turbine_4_power.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/power_flow_results.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/power_flow_results.xlsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/run_optimization_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/run_optimization_model.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/secondary_reserves/Total_Reserve_with network.png" beforeDir="false" afterPath="$PROJECT_DIR$/secondary_reserves/Total_Reserve_with network.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

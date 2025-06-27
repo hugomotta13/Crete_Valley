@@ -15,22 +15,22 @@ def save_results_to_excel(m, output_file="final_results_crete_valley.xlsx"):
         df = pd.DataFrame({
             "Hour": hours,
             "Electric Energy Balance": [pe.value(m.E_E[t]) for t in hours],
-            "Natural Gas Consumption": [pe.value(m.E_G[t]) for t in hours],
-            "Hydrogen Consumption": [pe.value(m.E_H2[t]) for t in hours],
-            "Boiler Energy Consumption": [pe.value(m.E_B[t]) for t in hours],
-            "Thermal Energy Consumption": [pe.value(m.E_H[t]) for t in hours],
+            "Natural Gas Consumption": [pe.value(m.E_G[t])  for t in hours],
+            "Hydrogen Consumption": [pe.value(m.E_H2[t])  for t in hours],
+            "Boiler Energy Consumption": [pe.value(m.E_B[t])  for t in hours],
+            "Thermal Energy Consumption": [pe.value(m.E_H[t])  for t in hours],
 
         })
         df.to_excel(writer, sheet_name='Results', index=False)
         if all(hasattr(m, attr) for attr in ['Fe', 'Fg', 'F_H2', 'F_H2O', 'F_reserve', 'F_Boiler']):
             df_costs = pd.DataFrame({
                 "Hour": list(m.hours),
-                "Electricity Cost (Fe)": [pe.value(m.Fe[t]) for t in m.hours],
-                "Reserve Cost (F_reserve)": [pe.value(m.F_reserve[t]) for t in m.hours],
-                "Natural Gas Cost (Fg)": [pe.value(m.Fg[t]) for t in m.hours],
-                "Hydrogen Cost (F_H2)": [pe.value(m.F_H2[t]) for t in m.hours],
-                "Water Cost (F_H2O)": [pe.value(m.F_H2O[t]) for t in m.hours],
-                "Boiler Cost (F_Boiler)": [pe.value(m.F_Boiler[t]) for t in m.hours],
+                "Electricity Cost (Fe)": [pe.value(m.Fe[t]) / 1000 for t in m.hours],
+                "Reserve Cost (F_reserve)": [pe.value(m.F_reserve[t]) / 1000 for t in m.hours],
+                "Natural Gas Cost (Fg)": [pe.value(m.Fg[t]) / 1000 for t in m.hours],
+                "Hydrogen Cost (F_H2)": [pe.value(m.F_H2[t]) / 1000 for t in m.hours],
+                "Water Cost (F_H2O)": [pe.value(m.F_H2O[t]) / 1000 for t in m.hours],
+                "Boiler Cost (F_Boiler)": [pe.value(m.F_Boiler[t]) / 1000 for t in m.hours],
             })
 
             df_costs["Total Cost per Hour"] = df_costs[
@@ -38,8 +38,19 @@ def save_results_to_excel(m, output_file="final_results_crete_valley.xlsx"):
                  "Hydrogen Cost (F_H2)", "Water Cost (F_H2O)", "Boiler Cost (F_Boiler)"]
             ].sum(axis=1)
 
-            # Salva no Excel
+            # Calcula o total acumulado
+            total_cost = df_costs["Total Cost per Hour"].sum()
+
+            # Escreve no Excel
             df_costs.to_excel(writer, sheet_name="Energy_Costs_Overview", index=False)
+
+            # Agora escreve o total abaixo da tabela
+            worksheet = writer.sheets["Energy_Costs_Overview"]
+            start_row = len(df_costs) + 2  # duas linhas abaixo da tabela
+
+            worksheet.cell(row=start_row, column=1, value="Total System Cost (€)")
+            worksheet.cell(row=start_row, column=2, value=round(total_cost, 4))
+
         # Save results PV
         pd.DataFrame().to_excel(writer, sheet_name="PV_Results")
 
@@ -885,7 +896,7 @@ def plot_secondary_reserves_separate(m, hours,output_folder):
             plt.savefig(os.path.join(output_folder, f"boiler_{j}_reserves_F.png"), dpi=300)
             plt.close()
 
-def plot_aggregated_secondary_reserves(m, output_folder, label_rede):
+def plot_aggregated_secondary_reserves(m, output_folder):
     os.makedirs(output_folder, exist_ok=True)
     # Clear old files from the folder
     for file in os.listdir(output_folder):
@@ -919,32 +930,3 @@ def plot_aggregated_secondary_reserves(m, output_folder, label_rede):
             up_values.append(soma_reserva(getattr(m, up_var)))
             down_values.append(soma_reserva(getattr(m, down_var)))
 
-    # Ordenar por soma total
-    total_values = [u + d for u, d in zip(up_values, down_values)]
-    sorted_indices = np.argsort(total_values)[::-1]
-    tecnologias = [tecnologias[i] for i in sorted_indices]
-    up_values = [up_values[i] for i in sorted_indices]
-    down_values = [down_values[i] for i in sorted_indices]
-
-    # Plot
-    x = np.arange(len(tecnologias))
-    width = 0.35
-
-    plt.figure(figsize=(14, 6))
-    plt.bar(x - width/2, up_values, width=width, label='Upward Reserve', color='purple')
-    plt.bar(x + width/2, down_values, width=width, label='Downward Reserve', color='orange')
-
-    plt.xticks(x, tecnologias, rotation=45)
-    plt.ylabel("Total Reserve (kW)")
-    plt.title(f"Secondary Reserve by Technology - {label_rede}")
-    plt.grid(axis='y', linestyle='--', alpha=0.6)
-    plt.legend()
-
-    # Adiciona os valores nas barras
-    for i in range(len(x)):
-        plt.text(x[i] - width/2, up_values[i] + 10, f'{up_values[i]:.1f}', ha='center', va='bottom', fontsize=8)
-        plt.text(x[i] + width/2, down_values[i] + 10, f'{down_values[i]:.1f}', ha='center', va='bottom', fontsize=8)
-
-    plt.tight_layout()
-    plt.savefig(os.path.join(output_folder, f"Total_Reserve_{label_rede}.png"), dpi=300)
-    plt.close()
